@@ -21,11 +21,21 @@ import UpdateSecondModule from './viewModules/secondModule';
 import UpdateThirdModule from './viewModules/thirdModule';
 import SetClassFunction from './viewModules/SetClassFunction';
 
-const globalDispatch = d3.dispatch('change:number','change:pain','update:second');
+const globalDispatch = d3.dispatch('change:number','change:pain','update:first','update:second');
 
 globalDispatch.on('change:number',(number) => {
 	SetClassFunction(number);
 })
+
+globalDispatch.on('update:first',() => {
+	UpdateFirstModule();
+})
+
+globalDispatch.on('update:second',() => {
+	UpdateSecondModule();
+})
+
+
 
 //create new medical problems with various pain thresholds
 const headache = new problem ('headache',9,8,7,7,4,8,7,5,4,3);
@@ -58,15 +68,16 @@ menu.on('change',function(){
   var scene1 = new ScrollMagic.Scene({triggerElement: "#firstModule",duration:200})
           .setTween(tween1)
           .on('enter',() => {
-            UpdateFirstModule();
-// globalDispatch.call('update:second',null,problemChosen,problemName,name,gender,pain,age,time,zip);
+						globalDispatch.call('update:first',null);
           })
           .addIndicators({name:"trigger #1"}) // add indicators (requires plugin)
           .addTo(controller);
 
 	var scene2 = new ScrollMagic.Scene({triggerElement: "#secondModule",duration:200})
           .setTween(tween2)
-          .on('enter',() => {UpdateSecondModule()})
+					.on('enter',() => {
+						globalDispatch.call('update:second',null);
+          })
           .addIndicators({name:"trigger #2"}) // add indicators (requires plugin)
           .addTo(controller);
 
