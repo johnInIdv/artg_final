@@ -8,61 +8,20 @@ html,body,div{
 	margin:auto;
 }
 
-.nav{
-	height:144px;
-	padding:32px 0;
-}
 
-/* Font */
-.country-view h1{
-	font-size:3.75rem;
-	line-height:1.2;
-	font-weight: bold;
-}
-.chart h3{
-	font-size:0.75rem;
-	line-height:1.33333;
-}
 
-/* Line chart module */
-.chart{
-	width:240px;
-	height:160px;
-	float:left;
-}
-.line-chart .axis .domain{
-	display: none;
-}
-.line-chart .axis .tick line{
-	stroke-opacity: 0.2;
-}
-.line-chart .axis .tick text{
-	fill: #333;
-}
-.line-chart .tool-tip circle{
-	stroke-width:3px;
-	stroke:#333;
-	fill:white;
-}
-.line-chart .tool-tip text{
-	fill: #333;
-	font-size:10px;
-}
-.line-chart .tool-tip line{
-	stroke:#333;
-	stroke-opacity: 0.8;
-	stroke-width:1px;
-	stroke-dasharray: 2px 2px;
-}
+.module {height:300px;
+				width: 100%;
+	-webkit-flex: 1;  /* Safari 6.1+ */
+	-ms-flex: 1;  /* IE 10 */
+	flex: 1;}
 
-/* Composition module */
-.composition-container .node text{
-	fill: #333;
-	font-size: 10px;
-}
-
-/* Cartogram module */
-.cartogram-container .node text{
-	fill: #333;
-	font-size: 10px;
-}
+#firstModule{background-color: rgb(200,200,200);}
+#secondModule{background-color: rgb(175,175,175);}
+#thirdModule{background-color: rgb(150,150,150);}
+#fourthModule{background-color: rgb(220,150,150);}
+#animate2{opacity:0;}
+.red {background-color: red; height: 50px;}
+.blue {background-color: blue; height: 50px;}
+.yellow {background-color: yellow; height: 50px;}
+.prac {height: 50px;}

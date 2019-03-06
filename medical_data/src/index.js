@@ -1,157 +1,77 @@
 import './style.css';
-// import 'bootstrap/dist/css/bootstrap.css';
+import './bootstrap_bertin/dist/css/bootstrap.css';
 import {select, max, dispatch} from 'd3';
 
 import {
-	countryCodePromise,
-	migrationDataCombined
+	providerData
+
 } from './data';
 import {
-	groupBySubregionByYear
+	problem,
+	patient,
+	treatmentOption,
+	problemF,
+	genderOutputHe,
+	genderOutputHis,
 } from './utils';
 
 //View modules
-import Composition from './viewModules/Composition';
-import LineChart from './viewModules/LineChart';
-import Cartogram from './viewModules/Cartogram';
+import UpdateFirstModule from './viewModules/firstModule';
+import UpdateSecondModule from './viewModules/secondModule';
+import UpdateThirdModule from './viewModules/thirdModule';
+import SetClassFunction from './viewModules/SetClassFunction';
 
+const globalDispatch = d3.dispatch('change:number','change:pain','update:second');
 
+globalDispatch.on('change:number',(number) => {
+	SetClassFunction(number);
+})
 
-//Global variables
-let originCode = "840";
-let currentYear = 2017
+//create new medical problems with various pain thresholds
+const headache = new problem ('headache',9,8,7,7,4,8,7,5,4,3);
+const knee = new problem ('knee',8,7,5,4,3,9,8,7,7,4);
+const abdomen = new problem ('abdomen',9,8,5,7,4,8,7,3,5,8);
+console.log(headache);
 
-//Create global dispatch object
-const globalDispatch = dispatch("change:country","change:year");
+const data = [1,2,3];
+const menu = d3.select('#dropDiv');
 
-globalDispatch.on('change:country', (code, displayName) => {
-	originCode = code;
+menu.selectAll('option')
+  .data(data).enter()
+  .append('option')
+  .attr('value',d => d)
+  .html(function (d) { return d; });
+menu.on('change',function(){
+    // console.log(this.value);
+    const number = +this.value;
 
-	//Update title
-	title.html(displayName);
+    globalDispatch.call('change:number',null,number)
+  });
 
-	//Update other view modules
-	migrationDataCombined.then(data => {
-		const filteredData = data.filter(d => d.origin_code === originCode);
-		renderLineCharts(groupBySubregionByYear(filteredData));
-		renderComposition(filteredData, currentYear);
-		renderCartogram(filteredData, currentYear);
-	});
-});
+	// init controller
+	var controller = new ScrollMagic.Controller();
 
+	var tween1 = TweenMax.to("#animate", 3, {opacity:100,scale:2});
+	var tween2 = TweenMax.to("#animate2", 3, {opacity:100,scale:2});
 
-globalDispatch.on('change:year', year => {
-	currentYear = +year;
+	// build scene and set duration to window height
+  var scene1 = new ScrollMagic.Scene({triggerElement: "#firstModule",duration:200})
+          .setTween(tween1)
+          .on('enter',() => {
+            UpdateFirstModule();
+// globalDispatch.call('update:second',null,problemChosen,problemName,name,gender,pain,age,time,zip);
+          })
+          .addIndicators({name:"trigger #1"}) // add indicators (requires plugin)
+          .addTo(controller);
 
-	//Update other view modules
-	migrationDataCombined.then(data => {
-		const filteredData = data.filter(d => d.origin_code === originCode);
-		renderComposition(filteredData, currentYear);
-		renderCartogram(filteredData, currentYear);
-	});
-});
+	var scene2 = new ScrollMagic.Scene({triggerElement: "#secondModule",duration:200})
+          .setTween(tween2)
+          .on('enter',() => {UpdateSecondModule()})
+          .addIndicators({name:"trigger #2"}) // add indicators (requires plugin)
+          .addTo(controller);
 
-
-/*
- * DATA IMPORT
- */
-// Data import is completed in the background via Promises
-// When data import is complete, call change:country event on globalDispatch to render view components
-migrationDataCombined.then(() =>
-	globalDispatch.call(
-		'change:country',
-		null,
-		"840",
-		"United States"
-	));
-countryCodePromise.then(countryCode => renderMenu(countryCode));
-
-
-/*
- * UPDATE VIEW MODULES
- * Update line chart, composition, cartogram, and menu view modules
- */
-
-//Build UI for countryTitle component
-const title = select('.country-view')
-	.insert('h1', '.cartogram-container')
-	.html('World');
-
-function renderLineCharts(data){
-	//Find max value in data
-	const maxValue = max( data.map(subregion => max(subregion.values, d => d.value)) ) //[]x18
-
-	const lineChart = LineChart()
-		.maxY(maxValue)
-		.onChangeYear(
-			year => globalDispatch.call('change:year',null, year) //function, "callback function" to be executed upon the event
-		);
-
-	const charts = select('.chart-container')
-		.selectAll('.chart')
-		.data(data, d => d.key);
-	const chartsEnter = charts.enter()
-		.append('div')
-		.attr('class','chart')
-	charts.exit().remove();
-
-	charts.merge(chartsEnter)
-		.each(function(d){
-			lineChart(
-				d.values,
-				this,
-				d.key
-			);
-		});
-}
-
-function renderComposition(data, year){
-	const composition = Composition();
-
-	if(year){
-		//if year value is not undefined
-		composition.year(year);
-	}
-
-	select('.composition-container')
-		.each(function(){
-			composition(this, data);
-		});
-}
-
-function renderCartogram(data){
-	select('.cartogram-container')
-		.each(function(){
-			Cartogram(this, data);
-		});
-}
-
-function renderMenu(countryCode){
-	//Get list of countryCode values
-	const countryList = Array.from(countryCode.entries());
-
-	//Build UI for <select> menu
-	let menu = select('.nav')
-		.selectAll('select')
-		.data([1]);
-	menu = menu.enter()
-		.append('select')
-		.attr('class','form-control form-control-sm')
-		.merge(menu);
-	//Add <option> tag under <select>
-	menu.selectAll('option')
-		.data(countryList)
-		.enter()
-		.append('option')
-		.attr('value', d => d[1])
-		.html(d => d[0]);
-
-	//Define behavior for <select> menu
-	menu.on('change', function(){
-		const code = this.value; //3-digit code
-		const idx = this.selectedIndex;
-		const display = this.options[idx].innerHTML;
-
-		globalDispatch.call('change:country',null,code,display);
-	});
-}
+	var scene3 = new ScrollMagic.Scene({triggerElement:"#thirdModule",duration:200})
+          // .setClassToggle('#animate3','red')
+          .on('enter',() => {UpdateThirdModule()})
+          .addIndicators({name:"trigger #3"})
+          .addTo(controller);

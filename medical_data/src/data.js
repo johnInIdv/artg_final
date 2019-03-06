@@ -1,66 +1,23 @@
 import {
-	parseMigrationData,
-	parseMetadata,
-	parseCountryCode
+	parseProviderData
 } from './utils';
 
 import {csv} from 'd3';
 
-const migrationDataPromise = csv('./data/un-migration/Table 1-Table 1.csv', parseMigrationData)
-	.then(data => data.reduce((acc,v) => acc.concat(v), []));
+const providerData = csv("./data/small_data_webpack.csv",parseProviderData);
 
-const countryCodePromise = csv('./data/un-migration/ANNEX-Table 1.csv', parseCountryCode)
-	.then(data => new Map(data));
+providerData.then(function(d){
+  console.log(d);
+//returns the cost of each code at each service provider
+  const serviceCodesProvided = d3.nest()
+    .key(function(d) { return d.provider; })
+    .key(function(d) { return d.code; })
+    .rollup(function(v) { return d3.sum(v, function(d) { return d.cost;})})
+    .entries(d);
 
-const metadataPromise = csv('./data/country-metadata.csv', parseMetadata)
-	.then(metadata => {
-		//Convert metadata to a map
-		const metadata_tmp = metadata.map(a => {
-			return [a.iso_num, a]
-		});
-		const metadataMap = new Map(metadata_tmp);
-
-		return metadataMap;
-	});
-
-//migrationDataCombined combines migration data with associated metadata
-const migrationDataCombined = Promise.all([
-		migrationDataPromise,
-		countryCodePromise,
-		metadataPromise
-	])
-	.then(([migration, countryCode, metadataMap]) => {
-		//combine migration, countryCode, and metadataMap
-		const migrationAugmented = migration.map(d => {
-
-			const origin_code = countryCode.get(d.origin_name);
-			const dest_code = countryCode.get(d.dest_name);
-
-			d.origin_code = origin_code;
-			d.dest_code = dest_code;
-
-			//Take the 3-digit code, get metadata record
-			const origin_metadata = metadataMap.get(origin_code);
-			const dest_metadata = metadataMap.get(dest_code);
-
-			if(origin_metadata){
-				d.origin_subregion = origin_metadata.subregion;
-				d.origin_lngLat = origin_metadata.lngLat;
-			}
-			if(dest_metadata){
-				d.dest_subregion = dest_metadata.subregion;
-				d.dest_lngLat = dest_metadata.lngLat;
-			}
-
-			return d;
-		});
-
-		return migrationAugmented;
-	});
+  console.log(serviceCodesProvided);
+})
 
 export {
-	migrationDataPromise,
-	countryCodePromise,
-	metadataPromise,
-	migrationDataCombined
+	providerData,
 }

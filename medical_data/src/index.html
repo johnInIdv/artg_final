@@ -3,16 +3,140 @@
 	<head>
 		<meta charset='utf-8'>
    	 	<meta name="viewport" content="width=device-width">
+			<script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+			<script type="text/javascript" src="./js_webpack/lib/greensock/TweenMax.min.js"></script>
+			<script type="text/javascript" src="./scrollmagic_webpack/uncompressed/ScrollMagic.js"></script>
+			<script type="text/javascript" src="./scrollmagic_webpack/uncompressed/plugins/animation.gsap.js"></script>
+			<script type="text/javascript" src="./scrollmagic_webpack/uncompressed/plugins/debug.addIndicators.js"></script>
+
 	</head>
 	<body>
-		<div class='main'>
-			<div class='nav'></div>
-			<div class='country-view'>
-				<div class='cartogram-container'></div>
-				<div class='composition-container'></div>
-				<div class='chart-container'></div>
-			</div>
-		</div>
+		<div class="topHead" style="padding-top:150px;padding-bottom:150px;padding-left:20px;">
+		this is practice branch
+		<!-- <div class="prac" id="dropDiv"></div> -->
+		<div class="prac" id="div1"></div>
+		<div class="prac" id="div2"></div>
+		<div class="prac" id="div3"></div>
+		<select id="dropDiv">
+		</select>
+
+		<h1>Learn What Your Medical Bill Might Look Like</h1>
+	  <h3>Provide a Short Description of Yourself and Medical Issue and then press Submit.</h3>
+
+	    <form class="form-inline" action="/action_page.php" id="form">
+	      <div class="form-group">
+	        <label for="name">First Name</label>
+	        <input type="text" class="form-control" id="name">
+	      </div>
+	      <div class="form-group">
+	        <label for="age">Age</label>
+	        <input type="number" class="form-control" id="age">
+	      </div>
+	      <div class="form-group">
+	        <label for="problem">Problem</label>
+	        <select class="form-control" id="problem">
+	          <option>Abdomen</option>
+	          <option>Headache</option>
+	          <option>Knee</option>
+	          <option>Hand</option>
+	        </select>
+	      </div>
+	      <div class="form-group">
+	        <label for="gender">Gender</label>
+	        <select class="form-control" id="gender">
+	          <option>Male</option>
+	          <option>Female</option>
+	        </select>
+	      </div>
+	        <div class="form-group">
+	          <label for="sel1">Pain Level</label>
+	          <select class="form-control" id="pain">
+	            <option>1</option>
+	            <option>2</option>
+	            <option>3</option>
+	            <option>4</option>
+	            <option>5</option>
+	            <option>6</option>
+	            <option>7</option>
+	            <option>8</option>
+	            <option>9</option>
+	            <option>10</option>
+	          </select>
+	        </div>
+	        <div class="form-group">
+	          <label for="time">How many days have you had pain?</label>
+	          <input type="number" class="form-control" id="time">
+	        </div>
+	        <div class="form-group">
+	          <label for="zip">What is your zip code</label>
+	          <input type="number" class="form-control" id="zip">
+	        </div>
+	            <!-- <button class="btn btn-default" onclick="clickFunction()">Submit</button> -->
+	    </form>
+	    <!-- form automatically submits data upon entering the next module -->
+	    <!-- <button class="btn btn-default" onclick="submitButton()">Submit</button> -->
+	<!-- end form -->
+	</div>
+	<!-- end topHead -->
+	<!-- begin first module -->
+	  <div class="module" id="firstModule">
+	    First Module
+	    <section class="demo fullheight responsiveDuration">
+	      <div id="animate" class="box1 blue input">
+	        <p id="firstOutput"></p>
+	      </div>
+	    </section>
+	  </div>
+	<!-- end first module -->
+	<!-- begin second module -->
+	  <div class="module" id="secondModule">
+	    second module
+	    <section class="demo fullheight responsiveDuration">
+	      <!-- <div class="spacer s0" id="trigger"></div> -->
+	      <div id="animate2" class="box1 blue input">
+	        <p id="secondOutput"></p>
+	        <!-- <a href="#" class="viewsource">view source</a> -->
+	      </div>
+	      <div class="form-group">
+	        <label for="hospital">Choose your Preferred Hospital</label>
+	        <select class="form-control" id="hospital">
+	          <option>Hospital A</option>
+	          <option>Hospital B</option>
+	          <option>Hospital C</option>
+	          <option>Hospital D</option>
+	        </select>
+	      </div>
+	    </section>
+	  </div>
+	<!-- end second module -->
+	<!-- begin third module -->
+	  <div class="module" id="thirdModule">
+	    <section class="demo fullheight responsiveDuration">
+	      <!-- <div class="spacer s0" id="trigger"></div> -->
+
+	      <div id="animate3" class="box1 blue">
+	        <p id="thirdOutput"></p>
+	        <!-- <a href="#" class="viewsource">view source</a> -->
+	      </div>
+
+	    </section>
+	  </div>
+	<!-- end third module -->
+	<!-- begin fourth module -->
+	  <div class="module" id="fourthModule">
+	    <section class="demo fullheight responsiveDuration">
+	      <!-- <div class="spacer s0" id="trigger"></div> -->
+	      <div id="animate4" class="box1 blue">
+	        <p>This is the fourth element</p>
+	        <!-- <a href="#" class="viewsource">view source</a> -->
+	      </div>
+
+	    </section>
+	  </div>
+	<!-- end fourth module -->
+
 		<script src='bundle.js' type='text/javascript'></script>
 	</body>
 </html>
