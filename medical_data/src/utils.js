@@ -54,6 +54,18 @@ const problem = function ProblemVariable (
 	  this.zip = zip
 	}
 
+  //new Patient function
+  const EnteredPatient = function (){
+    this.problemName = document.getElementById("problem").value,
+    this.problem = () => {problemF()},//this converts string to the corresponding object so I have access to the parameters
+    this.gender = document.getElementById("gender").value,
+    this.name = document.getElementById("name").value,
+    this.pain = document.getElementById("pain").value,
+    this.age = document.getElementById("age").value,
+    this.time = document.getElementById("time").value,
+    this.zip = document.getElementById("zip").value
+  }
+
 	//create constructor function for new treatment options
 	const treatmentOption = function treatOptions (
 	      treatmentName,
@@ -69,7 +81,8 @@ const problem = function ProblemVariable (
 	const abdomen = new problem ('abdomen',9,8,5,7,4,8,7,3,5,8);
 
 	//algorthim to determine the best recommendation based on the patient and presenting problem
-	const recommendation = function(patient,problem){
+	const recommendation = function(patient){
+    	var problem = document.getElementById("problem").value;
 	      if (patient.pain > problem.highestPainOverall) {return 'ER';}
 	      else if ((patient.pain > problem.highestPainWithTime) && (patient.time > problem.highestTimeWithPain)){return 'ER';}
 	      else if ((patient.pain > problem.highestPainWithTimeAndAge) && (patient.time > problem.highestTimeWithPainAndAge) && ((patient.age < 19) || (patient.age > 64))){return 'ER';}
@@ -84,7 +97,7 @@ const problem = function ProblemVariable (
 	//problemF converts the string element to the problem objects created wiht parameters
 	const problemF = function(problem){
 	var problem = document.getElementById("problem").value;
-	if (problem === "Abdomen"){
+	if (problem === 'Abdomen'){
 	return abdomen;
 	}
 	else if (problem === "Headache"){
@@ -116,12 +129,12 @@ const problem = function ProblemVariable (
 			Time since pain began: ${patient.time} `
 	}
 
-	const say = (patient,problem) => {
-		console.log(problem);
+	const say = (patient) => {
+		// console.log(problem);
    return `I like ${patient.name} but given that ${genderOutputHe(patient)} has a pain level \
 of ${patient.pain} for ${genderOutputHis(patient)} ${patient.problemName}, \
 ${genderOutputHe(patient)} will \
-need to go the ${recommendation(patient,problem)}.`;
+need to go the ${recommendation(patient)}.`;
   }
 
 export {
@@ -133,5 +146,6 @@ export {
 	genderOutputHe,
 	genderOutputHis,
 	summary,
+  EnteredPatient,
 	say
 }

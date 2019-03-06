@@ -1,23 +1,17 @@
 import * as d3 from 'd3';
 
 import {
-	patient,
-	problemF,
-	say
+	say,
+	EnteredPatient
 } from '../utils';
 
-function UpdateSecondModule(){
-    var problemName = document.getElementById("problem").value;
-    var problem = problemF();//this converts string to the corresponding object so I have access to the parameters
-    var gender = document.getElementById("gender").value;
-    var name = document.getElementById("name").value;
-    var pain = document.getElementById("pain").value;
-    var age = document.getElementById("age").value;
-    var time = document.getElementById("time").value;
-    var zip = document.getElementById("zip").value;
+//function that puts the values entered into the patient object
+function UpdateSecondModule() {
 
-    const newPatientSecond = new patient(problem,problemName,name,gender,pain,age,time,zip);
-    document.getElementById('secondOutput').innerHTML = say(newPatientSecond,problem);
-  }
+	const newPatientFirst = new EnteredPatient();
+	console.log(newPatientFirst);
+	document.getElementById('secondOutput').innerHTML = say(newPatientFirst);
+	// globalDispatch.call('update:second',null,problemChosen,problemName,name,gender,pain,age,time,zip);
+}
 
 export default UpdateSecondModule;
