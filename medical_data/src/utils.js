@@ -57,7 +57,7 @@ const problem = function ProblemVariable (
   //new Patient function
   const EnteredPatient = function (){
     this.problemName = document.getElementById("problem").value,
-    this.problem = () => {problemF()},//this converts string to the corresponding object so I have access to the parameters
+    this.problem = problemF(this.problemName),//this converts string to the corresponding object so I have access to the parameters
     this.gender = document.getElementById("gender").value,
     this.name = document.getElementById("name").value,
     this.pain = document.getElementById("pain").value,
@@ -82,7 +82,7 @@ const problem = function ProblemVariable (
 
 	//algorthim to determine the best recommendation based on the patient and presenting problem
 	const recommendation = function(patient){
-    	var problem = document.getElementById("problem").value;
+    	var problem = patient.problem;
 	      if (patient.pain > problem.highestPainOverall) {return 'ER';}
 	      else if ((patient.pain > problem.highestPainWithTime) && (patient.time > problem.highestTimeWithPain)){return 'ER';}
 	      else if ((patient.pain > problem.highestPainWithTimeAndAge) && (patient.time > problem.highestTimeWithPainAndAge) && ((patient.age < 19) || (patient.age > 64))){return 'ER';}
