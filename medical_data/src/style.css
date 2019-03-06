@@ -12,6 +12,7 @@ html,body,div{
 
 .module {height:300px;
 				width: 100%;
+				text-align: center;
 	-webkit-flex: 1;  /* Safari 6.1+ */
 	-ms-flex: 1;  /* IE 10 */
 	flex: 1;}
