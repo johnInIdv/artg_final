@@ -3,7 +3,7 @@ import './bootstrap_bertin/dist/css/bootstrap.css';
 import {select, max, dispatch} from 'd3';
 
 import {
-	problem,
+	Problem,
 } from './utils';
 
 //View modules
@@ -27,9 +27,9 @@ globalDispatch.on('update:first',() => {
 
 
 //create new medical problems with various pain thresholds
-const headache = new problem ('headache',9,8,7,7,4,8,7,5,4,3);
-const knee = new problem ('knee',8,7,5,4,3,9,8,7,7,4);
-const abdomen = new problem ('abdomen',9,8,5,7,4,8,7,3,5,8);
+const headache = new Problem ('headache',9,8,7,7,4,8,7,5,4,3);
+const knee = new Problem ('knee',8,7,5,4,3,9,8,7,7,4);
+const abdomen = new Problem ('abdomen',9,8,5,7,4,8,7,3,5,8);
 console.log(headache);
 
 const data = [1,2,3];

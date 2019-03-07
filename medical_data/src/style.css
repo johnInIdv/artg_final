@@ -8,7 +8,11 @@ html,body,div{
 	margin:auto;
 }
 
-
+.input {
+	width: 50%;
+	align-items: center;
+	display: inline-block;
+}
 
 .module {height:300px;
 				width: 100%;

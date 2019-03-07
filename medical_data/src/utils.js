@@ -15,7 +15,7 @@ function parseProviderData(d){
 }
 
 //create constructor funciton to easily create new problems with various parameters
-const problem = function ProblemVariable (
+const Problem = function (
       problemName,
       highestPainOverall,
       highestPainWithTime,
@@ -41,11 +41,25 @@ const problem = function ProblemVariable (
       this.highestTimeWithPainAndAgeU = highestTimeWithPainAndAgeU
   };
 
+	//problemF converts the string element to the problem objects created wiht parameters
+	const problemF = function(problem){
+	var problem = document.getElementById("problem").value;
+	if (problem === 'Abdomen'){
+	return abdomen;
+	}
+	else if (problem === "Headache"){
+	return headache;
+	}
+	else if (problem === "Knee"){
+	return knee;
+	}
+	else {return "Choose a valid problem."}
+	}
+
 	//new Patient function
-	const patient = function Patient(problem,problemName,name,gender,pain,age,time,zip){
-	  this.patientProblem = problem,
-	  // this.problem = problemF(patientProblem)
+	const Patient = function (problemName,name,gender,pain,age,time,zip){
 	  this.problemName = problemName,
+	  this.problem = problemF(this.problemName)
 	  this.name = name,
 	  this.gender = gender,
 	  this.pain = +pain,
@@ -66,24 +80,36 @@ const problem = function ProblemVariable (
     this.zip = document.getElementById("zip").value
   }
 
-	//create constructor function for new treatment options
-	const treatmentOption = function treatOptions (
-	      treatmentName,
-	      expenseLevel,
-	){
-	      this.treatmentName = treatmentName,
-	      this.expenseLevel = expenseLevel
-	}
+  //create constructor function for new treatment options
+  const TreatmentOption = function (
+  			treatmentName,
+  			expenseLevel,
+  			waitTime,
+  			potentialRisk
+  ){
+  			this.treatmentName = treatmentName,
+  			this.expenseLevel = expenseLevel,
+  			this.waitTime = waitTime,
+  			this.potentialRisk = potentialRisk
+  }
+
+//these treatment options run through the recommendation function and then their variables
+// get printed out in the say function
+  const er = new TreatmentOption ('ER','$$$$',"minutes to an hour",'low');
+  const urgent_care = new TreatmentOption ('Urgent Care','$$$','up to 12 hours','moderate');
+  const primary_care = new TreatmentOption ('Primary Care', '$$','1-3 days','moderate');
+  const nothing = new TreatmentOption ('Nothing', '$?','not applicable','high');
+
 
 	//create new medical problems with various pain thresholds
-	const headache = new problem ('headache',9,8,7,7,4,8,7,5,4,3);
-	const knee = new problem ('knee',8,7,5,4,3,9,8,7,7,4);
-	const abdomen = new problem ('abdomen',9,8,5,7,4,8,7,3,5,8);
+	const headache = new Problem ('headache',9,8,7,7,4,8,7,5,4,3);
+	const knee = new Problem ('knee',8,7,5,4,3,9,8,7,7,4);
+	const abdomen = new Problem ('abdomen',9,8,5,7,4,8,7,3,5,8);
 
 	//algorthim to determine the best recommendation based on the patient and presenting problem
 	const recommendation = function(patient){
     	var problem = patient.problem;
-	      if (patient.pain > problem.highestPainOverall) {return 'ER';}
+	      if (patient.pain > problem.highestPainOverall) {return er;}
 	      else if ((patient.pain > problem.highestPainWithTime) && (patient.time > problem.highestTimeWithPain)){return 'ER';}
 	      else if ((patient.pain > problem.highestPainWithTimeAndAge) && (patient.time > problem.highestTimeWithPainAndAge) && ((patient.age < 19) || (patient.age > 64))){return 'ER';}
 	      else if (patient.pain > problem.highestPainOverallU) {return 'Urgent Care';}
@@ -92,22 +118,8 @@ const problem = function ProblemVariable (
 	      else {return false;}
 	}
 
-
-
-	//problemF converts the string element to the problem objects created wiht parameters
-	const problemF = function(problem){
-	var problem = document.getElementById("problem").value;
-	if (problem === 'Abdomen'){
-	return abdomen;
-	}
-	else if (problem === "Headache"){
-	return headache;
-	}
-	else if (problem === "Knee"){
-	return knee;
-	}
-	else {return "Choose a valid problem."}
-	}
+// const john = new Patient('Abdomen','John','Male',10,33,4,'03833')
+// console.log(recommendation(john).waitTime);
 
 //builds functions for the output by the say() function
   const genderOutputHe = (patient) => {
@@ -134,12 +146,14 @@ const problem = function ProblemVariable (
    return `I like ${patient.name} but given that ${genderOutputHe(patient)} has a pain level \
 of ${patient.pain} for ${genderOutputHis(patient)} ${patient.problemName}, \
 ${genderOutputHe(patient)} will \
-need to go the ${recommendation(patient)}.`;
+need to go the ${recommendation(patient).treatmentName}, which should take \
+${recommendation(patient).waitTime}, cost ${recommendation(patient).expenseLevel}, and \
+comes with a risk that is ${recommendation(patient).potentialRisk}.`;
   }
 
 export {
 	parseProviderData,
-	problem,
+	Problem,
 	patient,
 	treatmentOption,
 	problemF,
