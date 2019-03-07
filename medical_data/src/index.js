@@ -3,16 +3,7 @@ import './bootstrap_bertin/dist/css/bootstrap.css';
 import {select, max, dispatch} from 'd3';
 
 import {
-	providerData
-
-} from './data';
-import {
 	problem,
-	patient,
-	treatmentOption,
-	problemF,
-	genderOutputHe,
-	genderOutputHis,
 } from './utils';
 
 //View modules
@@ -21,7 +12,7 @@ import UpdateSecondModule from './viewModules/secondModule';
 import UpdateThirdModule from './viewModules/thirdModule';
 import SetClassFunction from './viewModules/SetClassFunction';
 
-const globalDispatch = d3.dispatch('change:number','change:pain','update:first','update:second');
+const globalDispatch = d3.dispatch('change:number','change:pain','update:first');
 
 globalDispatch.on('change:number',(number) => {
 	SetClassFunction(number);
@@ -29,11 +20,9 @@ globalDispatch.on('change:number',(number) => {
 
 globalDispatch.on('update:first',() => {
 	UpdateFirstModule();
-})
-
-globalDispatch.on('update:second',() => {
 	UpdateSecondModule();
 })
+
 
 
 
@@ -76,7 +65,7 @@ menu.on('change',function(){
 	var scene2 = new ScrollMagic.Scene({triggerElement: "#secondModule",duration:200})
           .setTween(tween2)
 					.on('enter',() => {
-						globalDispatch.call('update:second',null);
+					 console.log("just entered second module");
           })
           .addIndicators({name:"trigger #2"}) // add indicators (requires plugin)
           .addTo(controller);
