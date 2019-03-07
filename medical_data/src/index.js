@@ -71,7 +71,7 @@ menu.on('change',function(){
           .addTo(controller);
 
 	var scene3 = new ScrollMagic.Scene({triggerElement:"#thirdModule",duration:200})
-          // .setClassToggle('#animate3','red')
+          .setClassToggle('#animate3','red')
           .on('enter',() => {UpdateThirdModule()})
           .addIndicators({name:"trigger #3"})
           .addTo(controller);
