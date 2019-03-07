@@ -61,8 +61,8 @@ menu.on('change',function(){
 	// init controller
 	var controller = new ScrollMagic.Controller();
 
-	var tween1 = TweenMax.to("#animate", 3, {opacity:100,scale:2});
-	var tween2 = TweenMax.to("#animate2", 3, {opacity:100,scale:2});
+	var tween1 = TweenMax.to("#animate", 3, {opacity:1,scale:1.25});
+	var tween2 = TweenMax.to("#animate2",3, {opacity:1,scale:1.25});
 
 	// build scene and set duration to window height
   var scene1 = new ScrollMagic.Scene({triggerElement: "#firstModule",duration:200})

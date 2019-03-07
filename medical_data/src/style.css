@@ -21,6 +21,7 @@ html,body,div{
 #secondModule{background-color: rgb(175,175,175);}
 #thirdModule{background-color: rgb(150,150,150);}
 #fourthModule{background-color: rgb(220,150,150);}
+#animate{opacity:0.4;}
 #animate2{opacity:0;}
 .red {background-color: red; height: 50px;}
 .blue {background-color: blue; height: 50px;}
