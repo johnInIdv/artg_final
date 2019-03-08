@@ -2,9 +2,10 @@ import {
 	parseProviderData
 } from './utils';
 
-import {csv} from 'd3';
+import {csv,json} from 'd3';
 
 const providerData = csv("./data/small_data_webpack.csv",parseProviderData);
+const problemData = json("./data/problem_data.json");
 
 providerData.then(function(d){
   console.log(d);
@@ -20,4 +21,5 @@ providerData.then(function(d){
 
 export {
 	providerData,
+	problemData
 }

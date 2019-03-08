@@ -25,7 +25,7 @@ now it is myb branch
 
 		<h1>Learn What Your Medical Bill Might Look Like</h1>
 	  <h3>Provide a Short Description of Yourself and Medical Issue and then press Submit.</h3>
-
+	<div id="firstTrigger"></div>
 	    <form class="form-inline" action="/action_page.php" id="form">
 	      <div class="form-group">
 	        <label for="name">First Name</label>
@@ -82,14 +82,28 @@ now it is myb branch
 	</div>
 	<!-- end topHead -->
 	<!-- begin first module -->
-	  <div class="module" id="firstModule">
-	    First Module
-	    <section class="demo fullheight responsiveDuration">
-	      <div id="animate" class="box1 blue input">
-	        <p id="firstOutput"></p>
-	      </div>
-	    </section>
-	  </div>
+
+	<div class="module" id="firstModule">
+		<div class="row" id="animate">
+	 		<div class="col-sm-6" style="background-color:yellow; height: 100px;">
+		    <section class="demo fullheight responsiveDuration">
+		      <div class="input">
+		        <p id="firstLeftModuleOutput"></p>
+		      </div>
+		    </section>
+			</div>
+			<div class="col-sm-6" style="background-color:red;">
+				<section class="demo fullheight responsiveDuration">
+				 <div id="animateA" class="input">
+					 <p id="firstRightModuleOutput"></p>
+				 </div>
+			 </section>
+	 		</div>
+		</div>
+		<div id="firstModuleViz" style="height:400px;background-color:pink;">
+
+		</div>
+ 	</div>
 	<!-- end first module -->
 	<!-- begin second module -->
 	  <div class="module" id="secondModule">

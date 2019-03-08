@@ -5,13 +5,23 @@ import {
 	EnteredPatient
 } from '../utils';
 
+import problemData from '../data';
+
 //function that puts the values entered into the patient object
-function UpdateFirstModule() {
+function UpdateFirstModuleOutputs() {
 
 	const newPatientFirst = new EnteredPatient();
 	console.log(newPatientFirst);
-	document.getElementById('firstOutput').innerHTML = summary(newPatientFirst);
+	document.getElementById('firstLeftModuleOutput').innerHTML = summary(newPatientFirst);
+	document.getElementById('firstRightModuleOutput').innerHTML = "Total Bill so far: $0";
 	// globalDispatch.call('update:second',null,problemChosen,problemName,name,gender,pain,age,time,zip);
 }
 
-export default UpdateFirstModule;
+function UpdateFirstModuleViz(a){
+	console.log(a);
+}
+
+export {
+	UpdateFirstModuleViz,
+	UpdateFirstModuleOutputs
+};

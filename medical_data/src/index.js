@@ -6,8 +6,13 @@ import {
 	Problem,
 } from './utils';
 
+import {
+	problemData,
+} from './data';
+
 //View modules
-import UpdateFirstModule from './viewModules/firstModule';
+import {UpdateFirstModuleOutputs,
+				UpdateFirstModuleViz} from './viewModules/firstModule';
 import UpdateSecondModule from './viewModules/secondModule';
 import UpdateThirdModule from './viewModules/thirdModule';
 import SetClassFunction from './viewModules/SetClassFunction';
@@ -19,12 +24,13 @@ globalDispatch.on('change:number',(number) => {
 })
 
 globalDispatch.on('update:first',() => {
-	UpdateFirstModule();
+	UpdateFirstModuleOutputs();
 	UpdateSecondModule();
+	problemData.then((d)=>{
+		UpdateFirstModuleViz(d.Abdomen.day.one.under18);
+	})
+
 })
-
-
-
 
 //create new medical problems with various pain thresholds
 const headache = new Problem ('headache',9,8,7,7,4,8,7,5,4,3);
@@ -50,11 +56,11 @@ menu.on('change',function(){
 	// init controller
 	var controller = new ScrollMagic.Controller();
 
-	var tween1 = TweenMax.to("#animate", 3, {opacity:1,scale:1.25});
-	var tween2 = TweenMax.to("#animate2",3, {opacity:1,scale:1.25});
+	var tween1 = TweenMax.to("#animate", 3, {opacity:1,scale:1});
+	var tween2 = TweenMax.to("#animate2",3, {opacity:1,scale:1});
 
 	// build scene and set duration to window height
-  var scene1 = new ScrollMagic.Scene({triggerElement: "#firstModule",duration:200})
+  var scene1 = new ScrollMagic.Scene({triggerElement: "#firstTrigger",duration:200})
           .setTween(tween1)
           .on('enter',() => {
 						globalDispatch.call('update:first',null);
