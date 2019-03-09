@@ -34,6 +34,7 @@ d.forEach((d,i) => {
 
 	})
 console.log(result.risk);
+console.log(result.recommendation);
 }
 
 
