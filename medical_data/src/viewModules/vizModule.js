@@ -5,8 +5,31 @@ import {nest, select, geoMercator, max, scaleSqrt,
 	forceCollide
 } from 'd3';
 
+import {
+	problemData,
+} from './data';
+
+
+problemData.then(
+
+)
+
+function barChart(data){
+	let dataMap = nest()
+		.key(d => d.Abdomen)
+		.key(d => d.day)
+		.key(d => d.one)
+		.key(d => d.under18)
+		.key(d => d.pain)
+		.entries(data)
+		.map (d => )
+}
+
+
 //API reference for force layout
 //https://github.com/d3/d3-force
+
+
 
 export default function Cartogram(rootDOM, data){
 

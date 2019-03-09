@@ -2,7 +2,8 @@ import * as d3 from 'd3';
 
 import {
 	summary,
-	EnteredPatient
+	EnteredPatient,
+	NewEnteredPatient
 } from '../utils';
 
 import problemData from '../data';
@@ -21,7 +22,24 @@ function UpdateFirstModuleViz(a){
 	console.log(a);
 }
 
+
+function GetRecRisk (d){
+
+let result;
+d.forEach((d,i) => {
+	const thePatient = new NewEnteredPatient();
+
+	if (thePatient.problem == d.problem && thePatient.day == d.day && thePatient.age == d.age
+		&& thePatient.pain == d.pain) { result = d; }
+
+	})
+console.log(result.risk);
+}
+
+
+
 export {
 	UpdateFirstModuleViz,
-	UpdateFirstModuleOutputs
+	UpdateFirstModuleOutputs,
+	GetRecRisk
 };

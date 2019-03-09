@@ -26,7 +26,7 @@ now it is myb branch
 		<h1>Learn What Your Medical Bill Might Look Like</h1>
 	  <h3>Provide a Short Description of Yourself and Medical Issue and then press Submit.</h3>
 	<div id="firstTrigger"></div>
-	    <form class="form-inline" action="/action_page.php" id="form">
+	    <form class="form-inline"  id="form">
 	      <div class="form-group">
 	        <label for="name">First Name</label>
 	        <input type="text" class="form-control" id="name">
@@ -68,14 +68,20 @@ now it is myb branch
 	        </div>
 	        <div class="form-group">
 	          <label for="time">How many days have you had pain?</label>
-	          <input type="number" class="form-control" id="time">
+						<select class="form-control" id="day">
+	            <option>1</option>
+	            <option>2</option>
+	            <option>3</option>
+	            <option>4</option>
+	            <option>5</option>
+	          </select>
 	        </div>
 	        <div class="form-group">
 	          <label for="zip">What is your zip code</label>
 	          <input type="number" class="form-control" id="zip">
 	        </div>
-	            <!-- <button class="btn btn-default" onclick="clickFunction()">Submit</button> -->
 	    </form>
+	            <button class="btn btn-default" onclick="tryString()">Submit</button>
 	    <!-- form automatically submits data upon entering the next module -->
 	    <!-- <button class="btn btn-default" onclick="submitButton()">Submit</button> -->
 	<!-- end form -->
@@ -83,6 +89,7 @@ now it is myb branch
 	<!-- end topHead -->
 	<!-- begin first module -->
 
+<button type="button" name="button" onclick="tryString()">tryString</button>
 	<div class="module" id="firstModule">
 		<div class="row" id="animate">
 	 		<div class="col-sm-6" style="background-color:yellow; height: 100px;">

@@ -4,6 +4,7 @@ import {select, max, dispatch} from 'd3';
 
 import {
 	Problem,
+	NewEnteredPatient
 } from './utils';
 
 import {
@@ -12,7 +13,8 @@ import {
 
 //View modules
 import {UpdateFirstModuleOutputs,
-				UpdateFirstModuleViz} from './viewModules/firstModule';
+				UpdateFirstModuleViz,
+				GetRecRisk} from './viewModules/firstModule';
 import UpdateSecondModule from './viewModules/secondModule';
 import UpdateThirdModule from './viewModules/thirdModule';
 import SetClassFunction from './viewModules/SetClassFunction';
@@ -26,11 +28,10 @@ globalDispatch.on('change:number',(number) => {
 globalDispatch.on('update:first',() => {
 	UpdateFirstModuleOutputs();
 	UpdateSecondModule();
-	problemData.then((d)=>{
-		UpdateFirstModuleViz(d.Abdomen.day.one.under18);
+	problemData.then((d) => {
+	GetRecRisk(d);
+});
 	})
-
-})
 
 //create new medical problems with various pain thresholds
 const headache = new Problem ('headache',9,8,7,7,4,8,7,5,4,3);

@@ -1,0 +1,1345 @@
+{ "Abdomen": {
+	  "day": {
+      "one": {
+        "under18": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 6
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            }
+          }
+        },
+        "18to65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "nine": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            }
+          }
+        },
+        "over65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "call doctor",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 6
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 8
+            }
+          }
+        }
+      },
+      "two": {
+        "under18": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "call doctor",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 6
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            }
+          }
+        },
+        "18to65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "nine": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            }
+          }
+        },
+        "over65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 8
+            }
+          }
+        }
+      },
+      "three": {
+        "under18": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "call doctor",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 6
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            }
+          }
+        },
+        "18to65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "nine": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            }
+          }
+        },
+        "over65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 8
+            }
+          }
+        }
+      },
+      "four": {
+        "under18": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "call doctor",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 6
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            }
+          }
+        },
+        "18to65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "nine": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            }
+          }
+        },
+        "over65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 8
+            }
+          }
+        }
+      },
+      "five": {
+        "under18": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "call doctor",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 6
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            }
+          }
+        },
+        "18to65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "nine": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            }
+          }
+        },
+        "over65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 8
+            }
+          }
+        }
+      },
+      "six": {
+        "under18": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "call doctor",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 6
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            }
+          }
+        },
+        "18to65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "nine": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            }
+          }
+        },
+        "over65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 8
+            }
+          }
+        }
+      },
+      "seven": {
+        "under18": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "call doctor",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 6
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            }
+          }
+        },
+        "18to65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "nine": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            }
+          }
+        },
+        "over65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 8
+            }
+          }
+        }
+      },
+      "eight": {
+        "under18": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "call doctor",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 6
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            }
+          }
+        },
+        "18to65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "nine": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            }
+          }
+        },
+        "over65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 8
+            }
+          }
+        }
+      },
+      "nine": {
+        "under18": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "call doctor",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 6
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            }
+          }
+        },
+        "18to65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "nine": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            }
+          }
+        },
+        "over65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 8
+            }
+          }
+        }
+      },
+      "ten": {
+        "under18": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "call doctor",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 6
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            }
+          }
+        },
+        "18to65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "nine": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            }
+          }
+        },
+        "over65": {
+          "pain": {
+            "one": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "two": {
+              "recommendation": "do nothing",
+              "risk": 1
+            },
+            "three": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "four": {
+              "recommendation": "do nothing",
+              "risk": 2
+            },
+            "five": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "six": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "seven": {
+              "recommendation": "call doctor",
+              "risk": 3
+            },
+            "eight": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 5
+            },
+            "nine": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 7
+            },
+            "ten": {
+              "recommendation": "Urgent Care or ER",
+              "risk": 8
+            }
+          }
+        }
+      }
+    }
+  }
+}

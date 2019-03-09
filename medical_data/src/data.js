@@ -1,11 +1,12 @@
 import {
-	parseProviderData
+	parseProviderData,
+	parseProblemData
 } from './utils';
 
 import {csv,json} from 'd3';
 
 const providerData = csv("./data/small_data_webpack.csv",parseProviderData);
-const problemData = json("./data/problem_data.json");
+const problemData = csv("./data/problem.csv", parseProblemData);
 
 providerData.then(function(d){
   console.log(d);

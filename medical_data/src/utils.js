@@ -14,6 +14,26 @@ function parseProviderData(d){
   }
 }
 
+function parseProblemData(d){
+  return{
+    problem: d["Problem"],
+    day: +d.Day,
+    age: +d.Age,
+    // () => {
+    //   if (d.Age === "1"){
+    //     return "Under 18";
+    //   } else if (d.Age === "2"){
+    //     return "18 - 65";
+    //   } else if (d.Age === "3"){
+    //     return "Over 65";
+    //   }
+    // },
+    pain: +d.Pain,
+    recommendation: d["Recommendation"],
+    risk: +d.Risk
+  }
+}
+
 //create constructor funciton to easily create new problems with various parameters
 const Problem = function (
       problemName,
@@ -76,8 +96,19 @@ const Problem = function (
     this.name = document.getElementById("name").value,
     this.pain = document.getElementById("pain").value,
     this.age = document.getElementById("age").value,
-    this.time = document.getElementById("time").value,
+    this.day = document.getElementById("day").value,
     this.zip = document.getElementById("zip").value
+  }
+
+  const NewEnteredPatient = function(){
+    this.problem = document.getElementById("problem").value,
+    this.day = +document.getElementById("day").value,
+    this.age = +document.getElementById("age").value,
+    this.pain = +document.getElementById("pain").value
+    // this.problem = problem,
+	  // this.day = +day,
+	  // this.age = +age,
+    // this.pain = +pain
   }
 
   //create constructor function for new treatment options
@@ -153,6 +184,7 @@ comes with a risk that is ${recommendation(patient).potentialRisk}.`;
 
 export {
 	parseProviderData,
+  parseProblemData,
 	Problem,
 	patient,
 	treatmentOption,
@@ -161,5 +193,6 @@ export {
 	genderOutputHis,
 	summary,
   EnteredPatient,
+  NewEnteredPatient,
 	say
 }
