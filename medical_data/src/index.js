@@ -30,14 +30,19 @@ globalDispatch.on('update:first',() => {
 	UpdateSecondModule();
 	problemData.then((d) => {
 	GetRecRisk(d);
+
+	// console.log(GetRecRisk(d).result.risk);
 });
+// const sayThis = () => { return `I am risk: ${GetRecRisk(d).result.risk}` }
+//
+// document.getElementById("div3").innerHTML = sayThis();
+
 	})
 
 //create new medical problems with various pain thresholds
 const headache = new Problem ('headache',9,8,7,7,4,8,7,5,4,3);
 const knee = new Problem ('knee',8,7,5,4,3,9,8,7,7,4);
 const abdomen = new Problem ('abdomen',9,8,5,7,4,8,7,3,5,8);
-console.log(headache);
 
 const data = [1,2,3];
 const menu = d3.select('#dropDiv');

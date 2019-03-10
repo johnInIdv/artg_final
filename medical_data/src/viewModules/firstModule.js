@@ -28,7 +28,7 @@ function GetRecRisk (d){
 let result;
 d.forEach((d,i) => {
 	const thePatient = new NewEnteredPatient();
-
+//if these parameters match, it grabs the matching object and all the other variables, like recommendation and risk
 	if (thePatient.problem == d.problem && thePatient.day == d.day && thePatient.age == d.age
 		&& thePatient.pain == d.pain) { result = d; }
 

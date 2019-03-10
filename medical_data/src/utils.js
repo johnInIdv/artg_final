@@ -1,4 +1,5 @@
 // import {nest} from 'd3';
+import GetRecRisk from './viewModules/firstModule';
 
 //Utility functions for parsing metadata, migration data, and country code
 function parseProviderData(d){
@@ -162,14 +163,14 @@ const Problem = function (
   else {return "her"}
   }
 
-	const summary = (patient) => {
+	const summary = (patient,riskFunction) => {
 		return `Patient presenting a problem with ${genderOutputHis(patient)} ${patient.problemName}:
 			First name: ${patient.name}
 			Gender: ${patient.gender}
 			Age: ${patient.age}
 			Pain level: ${patient.pain}
 			Zip code: ${patient.zip}
-			Time since pain began: ${patient.time} `
+			Days since pain began: ${patient.day} `
 	}
 
 	const say = (patient) => {
@@ -179,7 +180,7 @@ of ${patient.pain} for ${genderOutputHis(patient)} ${patient.problemName}, \
 ${genderOutputHe(patient)} will \
 need to go the ${recommendation(patient).treatmentName}, which should take \
 ${recommendation(patient).waitTime}, cost ${recommendation(patient).expenseLevel}, and \
-comes with a risk that is ${recommendation(patient).potentialRisk}.`;
+comes with a risk that is ${recommendation(patient).expenseLevel}.`;
   }
 
 export {
