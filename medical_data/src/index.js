@@ -3,12 +3,12 @@ import './bootstrap_bertin/dist/css/bootstrap.css';
 import {select, max, dispatch} from 'd3';
 
 import {
-	Problem,
-	NewEnteredPatient
+	UpdateBar,
+	DoIt
 } from './utils';
 
 import {
-	problemData,
+	theData,
 } from './data';
 
 //View modules
@@ -18,6 +18,12 @@ import {UpdateFirstModuleOutputs,
 import UpdateSecondModule from './viewModules/secondModule';
 import UpdateThirdModule from './viewModules/thirdModule';
 import SetClassFunction from './viewModules/SetClassFunction';
+
+DoIt();
+console.log(theData);
+
+
+
 
 const globalDispatch = d3.dispatch('change:number','change:pain','update:first');
 

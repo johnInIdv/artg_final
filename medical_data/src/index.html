@@ -13,83 +13,96 @@
 
 	</head>
 	<body>
-		<div class="topHead" style="padding-top:150px;padding-bottom:150px;padding-left:20px;">
+<div class="long">
+  <div id="landPage">
+    <h1>Point to Where it Hurts</h1>
+    <div class="row">
+      <div class="col-sm-4" style="background-color:lavender;height: 1300px;">
+        <div id="bodyTrigger"></div>
+        <div id="body" style="padding-top: 200px;">
+            <img src="human_body.svg" alt="human body" style="height:400px;">
+        </div>
+      </div>
+      <div class="col-sm-8 right" style="background-color:lavenderblush; height: 800px;;">
+        <div class="" style="padding-top:300px;">
+          <form class="form-inline" action="/action_page.php">
+            <div class="form-group">
+              <label for="name">First Name</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="age">Age</label>
+              <select class="form-control" id="age">
+                <option>18 - 45</option>
+                <option>46 – 64</option>
+                <option>65 & over</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="problem">Location</label>
+              <select class="form-control" id="location">
+                <option>RLQ</option>
+                <option>RUQ</option>
+                <option>LLQ</option>
+                <option>LUQ</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select class="form-control" id="gender">
+                <option>male</option>
+                <option>female</option>
+              </select>
+            </div>
+              <div class="form-group">
+                <label for="time">Length of time</label>
+                <select class="form-control" id="time">
+                  <option>1-2 days</option>
+                  <option>3-7 days</option>
+                  <option>a week or more</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="pain">Pain level</label>
+                <select class="form-control" id="pain">
+                  <option>1-3</option>
+                  <option>4-7</option>
+                  <option>8-10</option>
+                </select>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="fever" value="">Fever</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="vomiting" value="">Vomiting</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="blood_in_vomit" value="" >Blood in Vomit</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="diarrhea" value="" >Diarrhea</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="blood_in_stool" value="">Blood in stool</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="risk_factors" value="bool" >Do you have risk factors</label>
+              </div>
 
-		<!-- <div class="prac" id="dropDiv"></div> -->
-		<div class="prac" id="div1"></div>
-		<div class="prac" id="div2"></div>
-		<div class="prac" id="div3"></div>
-		<select id="dropDiv">
-		</select>
-now it is myb branch
+                  <!-- <button class="btn btn-default" onclick="clickFunction()">Submit</button> -->
+          </form>
+          <button class="btn btn-default" onclick="DoIt()">Submit</button>
+        </div>
+        <div class="" id="svg">
 
-		<h1>Learn What Your Medical Bill Might Look Like</h1>
-	  <h3>Provide a Short Description of Yourself and Medical Issue and then press Submit.</h3>
-	<div id="firstTrigger"></div>
-	    <form class="form-inline"  id="form">
-	      <div class="form-group">
-	        <label for="name">First Name</label>
-	        <input type="text" class="form-control" id="name">
-	      </div>
-	      <div class="form-group">
-	        <label for="age">Age</label>
-					<select class="form-control" id="age">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-					</select>
-	      </div>
-	      <div class="form-group">
-	        <label for="problem">Problem</label>
-	        <select class="form-control" id="problem">
-	          <option>Abdomen</option>
-	          <option>Headache</option>
-	          <option>Knee</option>
-	          <option>Hand</option>
-	        </select>
-	      </div>
-	      <div class="form-group">
-	        <label for="gender">Gender</label>
-	        <select class="form-control" id="gender">
-	          <option>Male</option>
-	          <option>Female</option>
-	        </select>
-	      </div>
-	        <div class="form-group">
-	          <label for="sel1">Pain Level</label>
-	          <select class="form-control" id="pain">
-	            <option>1</option>
-	            <option>2</option>
-	            <option>3</option>
-	            <option>4</option>
-	            <option>5</option>
-	            <option>6</option>
-	            <option>7</option>
-	            <option>8</option>
-	            <option>9</option>
-	            <option>10</option>
-	          </select>
-	        </div>
-	        <div class="form-group">
-	          <label for="time">How many days have you had pain?</label>
-						<select class="form-control" id="day">
-	            <option>1</option>
-	            <option>2</option>
-	            <option>3</option>
-	            <option>4</option>
-	            <option>5</option>
-	          </select>
-	        </div>
-	        <div class="form-group">
-	          <label for="zip">What is your zip code</label>
-	          <input type="number" class="form-control" id="zip">
-	        </div>
-	    </form>
-	            <button class="btn btn-default" onclick="tryString()">Submit</button>
-	    <!-- form automatically submits data upon entering the next module -->
-	    <!-- <button class="btn btn-default" onclick="submitButton()">Submit</button> -->
-	<!-- end form -->
-	</div>
+        </div>
+      </div>
+      <div class="col-sm-8 right" style="background-color:pink; height: 500px;">
+
+      </div>
+    </div>
+  </div>
+</div>
 	<!-- end topHead -->
 	<!-- begin first module -->
 
