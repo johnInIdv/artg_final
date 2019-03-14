@@ -1,12 +1,3 @@
-// import {
-// 	parseProviderData,
-// 	parseProblemData
-// } from './utils';
-//
-// import {csv,json} from 'd3';
-//
-// const providerData = csv("./data/small_data_webpack.csv",parseProviderData);
-// const problemData = csv("./data/problem.csv", parseProblemData);
 
 const theData = {"abdomen":[
 {
@@ -35,16 +26,16 @@ const theData = {"abdomen":[
   "location":"RLQ",
   "time":"1-2 days",
   "pain":"1-3",
-  "fever":true,
-  "vomiting":true,
-  "blood_in_vomit":true,
-  "diarrhea":true,
-  "blood_in_stool": true,
+  "fever":false,
+  "vomiting":false,
+  "blood_in_vomit":false,
+  "diarrhea":false,
+  "blood_in_stool": false,
   "risk_factors": false,
 },
 "actions":{
   "recommendation":"ER",
-  "risk":8
+  "risk":4
 }
 },
 {
