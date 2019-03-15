@@ -22,12 +22,12 @@ import {
 console.log("doit is actually here");
 
 
-// const globalDispatch = d3.dispatch('change:number','change:pain','update:first');
-//
-// globalDispatch.on('change:number',(number) => {
-// 	SetClassFunction(number);
-// })
-//
+const globalDispatch = d3.dispatch('make:bars','change:pain','update:first');
+
+globalDispatch.on('make:bars',() => {
+	doIt();
+})
+
 // globalDispatch.on('update:first',() => {
 // 	UpdateFirstModuleOutputs();
 //
@@ -55,8 +55,7 @@ console.log("doit is actually here");
   var scene1 = new ScrollMagic.Scene({triggerElement: "#firstTrigger",duration:200})
           .setTween(tween1)
           .on('enter',() => {
-						// globalDispatch.call('update:first',null);
-						doIt();
+						globalDispatch.call('make:bars',null);
           })
           .addIndicators({name:"trigger #1"}) // add indicators (requires plugin)
           .addTo(controller);
