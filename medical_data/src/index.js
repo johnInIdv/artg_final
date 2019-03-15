@@ -50,6 +50,8 @@ globalDispatch.on('make:bars',() => {
 
 	var tween1 = TweenMax.to("#animate", 3, {opacity:1,scale:1});
 	var tween2 = TweenMax.to("#animate2",3, {opacity:1,scale:1});
+	const H = window.innerHeight;
+
 
 	// build scene and set duration to window height
   var scene1 = new ScrollMagic.Scene({triggerElement: "#firstTrigger",duration:200})
@@ -60,6 +62,10 @@ globalDispatch.on('make:bars',() => {
           .addIndicators({name:"trigger #1"}) // add indicators (requires plugin)
           .addTo(controller);
 
+	var body = new ScrollMagic.Scene({triggerElement: "#bodyTrigger",duration:800,offset: H/2})
+	        .setPin('#body')
+	        .addIndicators({name:"body pin"}) // add indicators (requires plugin)
+	        .addTo(controller);
 	// var scene2 = new ScrollMagic.Scene({triggerElement: "#secondModule",duration:200})
   //         .setTween(tween2)
 	// 				.on('enter',() => {
