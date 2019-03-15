@@ -1,4 +1,3 @@
-
 const theData = {"abdomen":[
 {
   "symptoms":{
@@ -15,8 +14,10 @@ const theData = {"abdomen":[
     "risk_factors": true,
   },
   "actions":{
-    "recommendation":"ER",
-    "risk":3
+		"ER": 8,
+	  "urgent_care": 8,
+		"primary_care": 9,
+		"nothing": 10
   }
 },
 {
@@ -26,16 +27,18 @@ const theData = {"abdomen":[
   "location":"RLQ",
   "time":"1-2 days",
   "pain":"1-3",
-  "fever":false,
-  "vomiting":false,
-  "blood_in_vomit":false,
-  "diarrhea":false,
-  "blood_in_stool": false,
+  "fever":true,
+  "vomiting":true,
+  "blood_in_vomit":true,
+  "diarrhea":true,
+  "blood_in_stool": true,
   "risk_factors": false,
 },
 "actions":{
-  "recommendation":"ER",
-  "risk":4
+  "ER": 2,
+  "urgent_care": 4,
+	"primary_care": 6,
+	"nothing": 8
 }
 },
 {
@@ -53,11 +56,14 @@ const theData = {"abdomen":[
   "risk_factors": false,
 },
 "actions":{
-  "recommendation":"ER",
-  "risk":9
+	"ER": 10,
+  "urgent_care": 7,
+	"primary_care": 5,
+	"nothing": 3
 }
 }
 ]}
+
 
 export {
 	theData
