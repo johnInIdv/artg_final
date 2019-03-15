@@ -9,7 +9,7 @@ function SayThis(){
   console.log("say this");
 }
 
-const riskData = [];
+let riskData;
 function doIt(){
 
   const theNewData = {
