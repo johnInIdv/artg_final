@@ -27,8 +27,6 @@ function doIt(){
      "risk_factors": document.getElementById("risk_factors").checked,
    }}
 
-
-
   var i;
   for (i = 0; i < 3; i++){//remember to change the length number when data objects are added to the data
     if ((theNewData.symptoms.age) == (theData.abdomen[i].symptoms.age)&&

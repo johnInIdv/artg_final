@@ -61,16 +61,16 @@ console.log("doit is actually here");
           .addIndicators({name:"trigger #1"}) // add indicators (requires plugin)
           .addTo(controller);
 
-	var scene2 = new ScrollMagic.Scene({triggerElement: "#secondModule",duration:200})
-          .setTween(tween2)
-					.on('enter',() => {
-					 console.log("just entered second module");
-          })
-          .addIndicators({name:"trigger #2"}) // add indicators (requires plugin)
-          .addTo(controller);
-
-	var scene3 = new ScrollMagic.Scene({triggerElement:"#thirdModule",duration:200})
-          .setClassToggle('#animate3','red')
-          .on('enter',() => {UpdateThirdModule()})
-          .addIndicators({name:"trigger #3"})
-          .addTo(controller);
+	// var scene2 = new ScrollMagic.Scene({triggerElement: "#secondModule",duration:200})
+  //         .setTween(tween2)
+	// 				.on('enter',() => {
+	// 				 console.log("just entered second module");
+  //         })
+  //         .addIndicators({name:"trigger #2"}) // add indicators (requires plugin)
+  //         .addTo(controller);
+	//
+	// var scene3 = new ScrollMagic.Scene({triggerElement:"#thirdModule",duration:200})
+  //         .setClassToggle('#animate3','red')
+  //         .on('enter',() => {UpdateThirdModule()})
+  //         .addIndicators({name:"trigger #3"})
+  //         .addTo(controller);
