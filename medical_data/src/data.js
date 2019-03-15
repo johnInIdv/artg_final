@@ -18,7 +18,8 @@ const theData = {"abdomen":[
 	  "urgent_care": 8,
 		"primary_care": 9,
 		"nothing": 10
-  }
+  },
+	"recommendation":"ER"
 },
 {
 "symptoms":{
@@ -39,7 +40,8 @@ const theData = {"abdomen":[
   "urgent_care": 4,
 	"primary_care": 6,
 	"nothing": 8
-}
+},
+	"recommendation":"ER"
 },
 {
 "symptoms":{
@@ -60,7 +62,8 @@ const theData = {"abdomen":[
   "urgent_care": 7,
 	"primary_care": 5,
 	"nothing": 3
-}
+},
+"recommendation":"ER"
 }
 ]}
 
