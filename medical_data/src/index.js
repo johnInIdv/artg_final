@@ -2,7 +2,10 @@ import './style.css';
 import './bootstrap_bertin/dist/css/bootstrap.css';
 import * as d3 from 'd3';
 
-import SayThis from './utils';
+import {
+	SayThis,
+	doIt
+} from './utils';
 
 import {
 	theData,

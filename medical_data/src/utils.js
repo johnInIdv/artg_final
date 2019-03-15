@@ -1,132 +1,111 @@
-// import * as d3 from 'd3';
-//
-// import {
-// 	theData,
-// } from './data';
-//
-//
+import * as d3 from 'd3';
+
+import {
+	theData,
+} from './data';
+
+
 function SayThis(){
   console.log("say this");
 }
-// const DoIt = function (){
-// let riskData = [];
-//   const theNewData = {
-//    "symptoms":{
-//      "age": document.getElementById("age").value,
-//      "gender":document.getElementById("gender").value,
-//      "location":document.getElementById("location").value,
-//      "time":document.getElementById("time").value,
-//      "pain":document.getElementById("pain").value,
-//      "fever":document.getElementById("fever").checked,
-//      "vomiting":document.getElementById("vomiting").checked,
-//      "blood_in_vomit":document.getElementById("blood_in_vomit").checked,
-//      "diarrhea":document.getElementById("diarrhea").checked,
-//      "blood_in_stool": document.getElementById("blood_in_stool").checked,
-//      "risk_factors": document.getElementById("risk_factors").checked,
-//    }}
-//
-// console.log(theNewData);
-// console.log(theData.abdomen[0].symptoms);
-//   var i;
-//   for (i = 0; i < 2; i++){
-//     if ((theNewData.symptoms.age) == (theData.abdomen[i].symptoms.age)&&
-//         (theNewData.symptoms.gender) == (theData.abdomen[i].symptoms.gender)&&
-//         (theNewData.symptoms.location) == (theData.abdomen[i].symptoms.location)&&
-//         (theNewData.symptoms.time) == (theData.abdomen[i].symptoms.time)&&
-//         (theNewData.symptoms.pain) == (theData.abdomen[i].symptoms.pain)&&
-//         (theNewData.symptoms.fever) == (theData.abdomen[i].symptoms.fever)&&
-//         (theNewData.symptoms.vomiting) == (theData.abdomen[i].symptoms.vomiting)&&
-//         (theNewData.symptoms.blood_in_vomit) == (theData.abdomen[i].symptoms.blood_in_vomit)&&
-//         (theNewData.symptoms.diarrhea) == (theData.abdomen[i].symptoms.diarrhea)&&
-//         (theNewData.symptoms.blood_in_stool) == (theData.abdomen[i].symptoms.blood_in_stool)&&
-//         (theNewData.symptoms.risk_factors) == (theData.abdomen[i].symptoms.risk_factors)
-//   ){
-//     // return {theData[i]};
-//     riskData.push(theData.abdomen[i].actions.risk);
-//     // riskData.push(theData.abdomen[i].actions.risk);
-//     console.log("the risk for this is: " + theData.abdomen[i].actions.risk);
-//     console.log("the recommendation is to go to the: " + theData.abdomen[i].actions.recommendation);
-//     }
-//    else {console.log("not the same");}
-// }
-// UpdateBar(riskData);
-// }
-//
-//
-//
-// const UpdateBar = function(data) {
-// console.log(data);
-//
-// // set the dimensions and margins of the graph
-// var margin = {top: 20, right: 20, bottom: 30, left: 40},
-//     w = 900 - margin.left - margin.right,
-//     h = 400 - margin.top - margin.bottom;
-//
-// // set the ranges
-// var y = d3.scaleBand()
-//           .range([h, 0])
-//           .padding(0.1);
-//
-// var x = d3.scaleLinear()
-//           .range([0, w]);
-//
-// // append the svg object to the body of the page
-// // append a 'group' element to 'svg'
-// // moves the 'group' element to the top left margin
-// var riskBar = d3.select("#svg").append("svg")
-//     .attr("width", w + margin.left + margin.right)
-//     .attr("height", h + margin.top + margin.bottom)
-//   .append("g")
-//     .attr("transform",
-//           "translate(" + margin.left + "," + margin.top + ")");
-//
-//
-// const color = d3.scaleOrdinal(d3.schemeCategory10);
-//
-// const bars = riskBar.selectAll('.bar')
-//     .data(data);//will need to fiddle with the data
-//
-//   bars.select('rect')
-//     .attr('fill','red')
-//     .attr('h', 10)
-//     .attr('w',50)
-//     .attr('x',50)
-//     .attr('y',50)
-//
-//   //enter
-//   const barsEnter = bars.enter()
-//       .append('g').attr('class','node');
-//     barsEnter.append('rect')
-//     .attr('height', 20)
-//     .attr('width', d => d * 10)
-//     .attr('x',60)
-//     .attr("y", 50)
-//     .attr('fill',color)
-//       // .style('fill', 'yellow'); //circles in the ENTER selection are colored differently
-//     barsEnter.append('text')
-//       .attr('text-anchor', 'middle');
-//
-//       // UPDATE + ENTER
-//     	// Both of their 'transform' attributes are the set the same way
-//     	//so we merge them
-//     	bars.merge(barsEnter)
-//     		.transition()
-//     		// .attr('transform', d => `translate(${d.x}, ${d.y})`);
-//     	bars.merge(barsEnter)
-//     		.select('text')
-//     		.text('The Bar');
-//     	bars.merge(barsEnter)
-//     		.select('rect')
-//     		.transition()
-//     		.attr('h', 10)
-//         .attr('w',d => d * 10)
-//         .attr('x',20)
-//         .attr("y", 50)
-//         .attr('fill',color)
-// }
-//
-//
-//
+
+function doIt(){
+
+  const theNewData = {
+   "symptoms":{
+     "age": document.getElementById("age").value,
+     "gender":document.getElementById("gender").value,
+     "location":document.getElementById("location").value,
+     "time":document.getElementById("time").value,
+     "pain":document.getElementById("pain").value,
+     "fever":document.getElementById("fever").checked,
+     "vomiting":document.getElementById("vomiting").checked,
+     "blood_in_vomit":document.getElementById("blood_in_vomit").checked,
+     "diarrhea":document.getElementById("diarrhea").checked,
+     "blood_in_stool": document.getElementById("blood_in_stool").checked,
+     "risk_factors": document.getElementById("risk_factors").checked,
+   }}
+
+
+
+  var i;
+  for (i = 0; i < 3; i++){//remember to change the length number when data objects are added to the data
+    if ((theNewData.symptoms.age) == (theData.abdomen[i].symptoms.age)&&
+        (theNewData.symptoms.gender) == (theData.abdomen[i].symptoms.gender)&&
+        (theNewData.symptoms.location) == (theData.abdomen[i].symptoms.location)&&
+        (theNewData.symptoms.time) == (theData.abdomen[i].symptoms.time)&&
+        (theNewData.symptoms.pain) == (theData.abdomen[i].symptoms.pain)&&
+        (theNewData.symptoms.fever) == (theData.abdomen[i].symptoms.fever)&&
+        (theNewData.symptoms.vomiting) == (theData.abdomen[i].symptoms.vomiting)&&
+        (theNewData.symptoms.blood_in_vomit) == (theData.abdomen[i].symptoms.blood_in_vomit)&&
+        (theNewData.symptoms.diarrhea) == (theData.abdomen[i].symptoms.diarrhea)&&
+        (theNewData.symptoms.blood_in_stool) == (theData.abdomen[i].symptoms.blood_in_stool)&&
+        (theNewData.symptoms.risk_factors) == (theData.abdomen[i].symptoms.risk_factors)
+  ){
+    // return {theData[i]};
+    riskData = [theData.abdomen[i].actions.ER,theData.abdomen[i].actions.urgent_care,theData.abdomen[i].actions.primary_care,theData.abdomen[i].actions.nothing];
+    // riskData.push(theData.abdomen[i].actions.risk);
+    console.log("the risk while going to ER: " + theData.abdomen[i].actions.ER);
+    console.log("the risk while going to Urgent Care: " + theData.abdomen[i].actions.urgent_care);
+		console.log("the risk while going to primary doc: " + theData.abdomen[i].actions.primary_care);
+		console.log("the risk of doing nothing: " + theData.abdomen[i].actions.nothing);
+
+    }
+   else {console.log("not the same");}
+}
+
+barVizFunction(riskData);
+}
+
+// const w = d3.select('.plot').node().clientWidth;
+// const h = d3.select('.plot').node().clientHeight;
+const w = 600;
+const h = 600;
+const barViz = d3.select('#svg').append('svg').attr('width',w).attr('height',h);
+
+const barVizFunction = function(data){
+
+          //UPDATE SELECTION
+        	const nodes = barViz.selectAll('.node')
+        		.data(data);
+        	nodes.select('rect')
+        		//.transition()
+        		.style('fill','green'); //circles in the UPDATE selection are black; note the use of .transition
+
+        	//ENTER SELECTION
+        	const nodesEnter = nodes.enter()
+        		.append('g').attr('class', 'node');
+        	nodesEnter.append('rect')
+        		// .style('fill', 'red'); //circles in the ENTER selection are colored differently
+        	nodesEnter.append('text')
+        		.attr('text-anchor', 'middle');
+
+        	//UPDATE + ENTER
+        	//Both of their 'transform' attributes are the set the same way
+        	//so we merge them
+        	nodes.merge(nodesEnter)
+        		.transition()
+        		// .attr('transform', d => `translate(${d.x}, ${d.y})`);
+        	nodes.merge(nodesEnter)
+        		.select('text')
+        		.text(d => d);
+        	nodes.merge(nodesEnter)
+        		.select('rect')
+        		.transition()
+            .attr("x", 150)
+            .attr("y", function (d,i) { return i * 20 -2; })
+            .attr("width", function (d){return d * 7})
+            .attr("height", 10)
+            .attr("fill", 'red');
+
+        	//EXIT SELECTION
+        	//nodes.exit().remove();
+        	nodes.exit()
+        		.select('rect')
+        		.style('fill','green');
+}
+
 export {
-  SayThis
+  SayThis,
+  doIt
 }
