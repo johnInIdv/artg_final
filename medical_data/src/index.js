@@ -52,7 +52,6 @@ globalDispatch.on('make:bars',() => {
 	var tween2 = TweenMax.to("#animate2",3, {opacity:1,scale:1});
 	const H = window.innerHeight;
 
-
 	// build scene and set duration to window height
   var scene1 = new ScrollMagic.Scene({triggerElement: "#firstTrigger",duration:200})
           .setTween(tween1)
