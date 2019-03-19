@@ -40,6 +40,12 @@ html,body,div{
 	background-color: #F4F5F7;
 	border: 1px solid #C5C5C5;
 }
+
+.hidden {
+	display: none;
+	z-index: 9999;
+}
+
 #landPage{height:1400px;background-color: rgb(100,100,100);}
 h1{z-index: 1; position: fixed; width: 100%;background-color: red;padding-top: 20px;padding-bottom: 20px; text-align: center;}
 

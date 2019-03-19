@@ -17,13 +17,25 @@
     <h1>Point to Where it Hurts</h1>
     <div class="row">
       <div class="col-sm-4" style="background-color:lavender;height: 1300px;">
-        <div id="bodyTrigger"></div>
-        <div id="body" style="padding-top: 200px;">
+
+	<div class="form-group" style="padding-top: 100px;padding-left: 20px;">
+		<form class=""  id="problem" name="problem" action="index.html" method="post">
+			<label for="problem">problem</label>
+			<select class="form-control" name='pOption'>
+				<option value='abdomen'>abdomen</option>
+				<option value='knee'>knee</option>
+				<option>head</option>
+			</select>
+		</form>
+	</div>
+
+			  <div id="bodyTrigger"></div>
+        <div id="body" onclick="abdomenForm()">
             <img src="./data/body.svg" alt="human body" style="height:400px;">
         </div>
       </div>
       <div class="col-sm-8 right" style="background-color:lavenderblush; height: 800px;;">
-        <div class="" style="padding-top:300px;">
+				<div class="form hidden" id="abdomenForm" style="padding-top:300px;">
           <form class="form-inline" action="/action_page.php">
             <div class="form-group">
               <label for="name">First Name</label>
@@ -91,9 +103,78 @@
                   <!-- <button class="btn btn-default" onclick="clickFunction()">Submit</button> -->
           </form>
           <button class="btn btn-default" onclick="doIt()">Submit</button>
-		<div id="firstTrigger"></div>
+
         </div>
-        <div class="" id="svg">
+
+				<div class="form hidden" id="kneeForm" style="padding-top:300px;">
+					<form class="form-inline" action="/action_page.php">
+						<div class="form-group">
+							<label for="name">First Name</label>
+							<input type="text" class="form-control" id="name">
+						</div>
+						<div class="form-group">
+							<label for="age">Age</label>
+							<select class="form-control" id="age_Knee">
+								<option>18 - 45</option>
+								<option>46 – 64</option>
+								<option>65 & over</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="problem">Location</label>
+							<select class="form-control" id="location_Knee">
+								<option>RLQ</option>
+								<option>RUQ</option>
+								<option>LLQ</option>
+								<option>LUQ</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="gender">Gender</label>
+							<select class="form-control" id="gender_Knee">
+								<option>male</option>
+								<option>female</option>
+							</select>
+						</div>
+							<div class="form-group">
+								<label for="time">Length of time</label>
+								<select class="form-control" id="time_Knee">
+									<option>1-2 days</option>
+									<option>3-7 days</option>
+									<option>a week or more</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="pain">Pain level</label>
+								<select class="form-control" id="pain_Knee">
+									<option>1-3</option>
+									<option>4-7</option>
+									<option>8-10</option>
+								</select>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" id="fever_Knee" value="">Fever</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" id="vomiting_Knee" value="">Vomiting</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" id="blood_in_vomit_Knee" value="" >Blood in Vomit</label>
+							</div>
+
+							<div class="checkbox">
+								<label><input type="checkbox" id="risk_factors_Knee" value="bool" >Do you have risk factors</label>
+							</div>
+
+									<!-- <button class="btn btn-default" onclick="clickFunction()">Submit</button> -->
+					</form>
+					<button class="btn btn-default" onclick="doIt()">Submit</button>
+
+				</div>
+
+
+	<div id="firstTrigger"></div>
+	      <div class="" id="svg">
 
         </div>
       </div>
@@ -108,7 +189,26 @@
 
 
 	<!-- end fourth module -->
+	<script type="text/javascript">
+	const p = document.getElementById('problem');
+	const af = document.getElementById('abdomenForm');
+	const kf = document.getElementById('kneeForm');
 
+	p.addEventListener('change',(e) => {
+		console.log(e.target.name);
+		console.log(e.target.value);
+		if (e.target.name == 'pOption'){
+			if (e.target.value == 'abdomen'){
+				af.style.display = 'block';
+				kf.style.display = 'none';
+			} else if (e.target.value == 'knee') {
+					af.style.display = "none";
+					kf.style.display = "block";
+				}
+			}
+	})
+
+	</script>
 		<script src='bundle.js' type='text/javascript'></script>
 	</body>
 </html>

@@ -4,6 +4,11 @@ import {
 	theData,
 } from './data';
 
+// const abdomenForm = function(){
+//
+//   document.getElementById('abdomenForm').style.display = 'none';
+//   document.getElementById('kneeForm').style.z-index = 'absolute';
+// }
 
 function SayThis(){
   console.log("say this");
@@ -106,5 +111,6 @@ const barVizFunction = function(data){
 
 export {
   SayThis,
-  doIt
+  doIt,
+  abdomenForm
 }

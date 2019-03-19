@@ -4,7 +4,8 @@ import * as d3 from 'd3';
 
 import {
 	SayThis,
-	doIt
+	doIt,
+	abdomenForm
 } from './utils';
 
 import {
@@ -26,6 +27,7 @@ const globalDispatch = d3.dispatch('make:bars','change:pain','update:first');
 
 globalDispatch.on('make:bars',() => {
 	doIt();
+	// abdomenForm();
 })
 
 // globalDispatch.on('update:first',() => {
@@ -61,7 +63,7 @@ globalDispatch.on('make:bars',() => {
           .addIndicators({name:"trigger #1"}) // add indicators (requires plugin)
           .addTo(controller);
 
-	var body = new ScrollMagic.Scene({triggerElement: "#bodyTrigger",duration:800,offset: H/2})
+	var body = new ScrollMagic.Scene({triggerElement: "#bodyTrigger",duration:800,offset: 100})
 	        .setPin('#body')
 	        .addIndicators({name:"body pin"}) // add indicators (requires plugin)
 	        .addTo(controller);
