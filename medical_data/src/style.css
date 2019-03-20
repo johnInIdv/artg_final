@@ -42,7 +42,7 @@ html,body,div{
 }
 
 .hidden {
-	display: block;
+	display: none;
 	z-index: 9999;
 }
 

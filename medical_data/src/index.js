@@ -24,9 +24,15 @@ import {
 // import SetClassFunction from './viewModules/SetClassFunction';
 
 console.log("doit is actually here");
-console.log(abdomenElements.age);
+console.log(typeof(theData.abdomen[0].symptoms.fever));
 console.log(kneeElements.age);
-
+makeElements(abdomenElements.age,ageInput);
+makeElements(abdomenElements.gender,genderInput);
+makeElements(abdomenElements.time,timeInput);
+makeElements(abdomenElements.location,locationInput);
+makeElements(abdomenElements.pain,painInput);
+var good = document.getElementById("fever").checked;
+console.log(typeof(good));
 
 
 const p = document.getElementById('problem');

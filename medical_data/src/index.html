@@ -36,83 +36,34 @@
       </div>
       <div class="col-sm-8 right" style="background-color:lavenderblush; height: 800px;;">
 				<div class="" id="createForms"></div>
-				<div class="form hidden" id="abdomenForm" style="padding-top:300px;">
+
+<!-- Abdomen Form -->
+				<div class="form" id="abdomenForm" style="padding-top:300px;">
           <form class="form-inline" action="/action_page.php">
-            <div class="form-group">
-              <label for="name">First Name</label>
-              <input type="text" class="form-control" id="name">
-            </div>
-            <div class="form-group">
-              <label for="age">Age</label>
-								<select style="padding-top:50px;" id="ageInput"></select>
-							<label for="gender">Gender</label>
-								<select style="padding-top:50px;" id="genderInput"></select>
-						 	<label for="time">Time</label>
-								<select style="padding-top:50px;" id="timeInput"></select>
-							<label for="time">Location</label>
-								<select style="padding-top:50px;" id="locationInput"></select>
-							<label for="time">Pain</label>
-								<select style="padding-top:50px;" id="painInput"></select>
+						<label for="name">First Name</label>
+            	<input type="text" class="form-control" id="name"/>
+            <label for="age">Age</label>
+							<select style="padding-top:50px;" id="ageInput"></select>
+						<label for="gender">Gender</label>
+							<select style="padding-top:50px;" id="genderInput"></select>
+					 	<label for="time">Time</label>
+							<select style="padding-top:50px;" id="timeInput"></select>
+						<label for="time">Location</label>
+							<select style="padding-top:50px;" id="locationInput"></select>
+						<label for="time">Pain</label>
+							<select style="padding-top:50px;" id="painInput"></select>
 
-            </div>
-            <div class="form-group">
-              <label for="problem">Location</label>
-              <select class="form-control" id="location">
-                <option>RLQ</option>
-                <option>RUQ</option>
-                <option>LLQ</option>
-                <option>LUQ</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="gender">Gender</label>
-              <select class="form-control" id="gender">
-                <option>male</option>
-                <option>female</option>
-              </select>
-            </div>
-              <div class="form-group">
-                <label for="time">Length of time</label>
-                <select class="form-control" id="time">
-                  <option>1-2 days</option>
-                  <option>3-7 days</option>
-                  <option>a week or more</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="pain">Pain level</label>
-                <select class="form-control" id="pain">
-                  <option>1-3</option>
-                  <option>4-7</option>
-                  <option>8-10</option>
-                </select>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" id="fever" value="">Fever</label>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" id="vomiting" value="">Vomiting</label>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" id="blood_in_vomit" value="" >Blood in Vomit</label>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" id="diarrhea" value="" >Diarrhea</label>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" id="blood_in_stool" value="">Blood in stool</label>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" id="risk_factors" value="bool" >Do you have risk factors</label>
-              </div>
+						<label><input type="checkbox" id="fever">Fever</label>
+            <label><input type="checkbox" id="vomiting">Vomiting</label>
+            <label><input type="checkbox" id="blood_in_vomit">Blood in Vomit</label>
+            <label><input type="checkbox" id="diarrhea">Diarrhea</label>
+            <label><input type="checkbox" id="blood_in_stool">Blood in stool</label>
+            <label><input type="checkbox" id="risk_factors">Do you have risk factors</label>
+        </form>
+      </div>
+<!-- end Abdoment Form -->
 
-                  <!-- <button class="btn btn-default" onclick="clickFunction()">Submit</button> -->
-          </form>
-          <button class="btn btn-default" onclick="doIt()">Submit</button>
-
-        </div>
-
-				<div class="form hidden" id="kneeForm" style="padding-top:300px;">
+				<!-- <div class="form hidden" id="kneeForm" style="padding-top:300px;">
 					<form class="form-inline" action="/action_page.php">
 						<div class="form-group">
 							<label for="name">First Name</label>
@@ -172,11 +123,11 @@
 								<label><input type="checkbox" id="risk_factors_Knee" value="bool" >Do you have risk factors</label>
 							</div>
 
-									<!-- <button class="btn btn-default" onclick="clickFunction()">Submit</button> -->
-					</form>
+							<button class="btn btn-default" onclick="clickFunction()">Submit</button>
+				 </form>
 					<button class="btn btn-default" onclick="doIt()">Submit</button>
 
-				</div>
+				</div> -->
 
 
 	<div id="firstTrigger"></div>

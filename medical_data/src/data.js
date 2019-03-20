@@ -1,17 +1,17 @@
 const theData = {"abdomen":[
 {
   "symptoms":{
-    "age":"18 - 45",
+    "age":"18 – 45",
     "gender":"male",
-    "location":"RLQ",
-    "time":"1-2 days",
+    "location":"Right Lower Quadrant",
+    "time":"1-3 days",
     "pain":"1-3",
     "fever":true,
     "vomiting":true,
     "blood_in_vomit":true,
     "diarrhea":true,
     "blood_in_stool": true,
-    "risk_factors": true,
+    "risk_factors": true
   },
   "actions":{
 		"ER": 8,
@@ -25,7 +25,7 @@ const theData = {"abdomen":[
 "symptoms":{
   "age":"18 - 45",
   "gender":"male",
-  "location":"RLQ",
+  "location":"Right Lower Quadrant",
   "time":"1-2 days",
   "pain":"1-3",
   "fever":true,
@@ -47,7 +47,7 @@ const theData = {"abdomen":[
 "symptoms":{
   "age":"18 - 45",
   "gender":"male",
-  "location":"RLQ",
+  "location":"Right Lower Quadrant",
   "time":"1-2 days",
   "pain":"1-3",
   "fever":true,
@@ -71,7 +71,7 @@ const theData = {"abdomen":[
   "symptoms":{
     "age":"18 - 45",
     "gender":"male",
-    "location":"RLQ",
+    "location":"Right Lower Quadrant",
     "time":"1-2 days",
     "pain":"1-3",
     "fever":true,
@@ -91,7 +91,7 @@ const theData = {"abdomen":[
 "symptoms":{
   "age":"18 - 45",
   "gender":"male",
-  "location":"RLQ",
+  "location":"Right Lower Quadrant",
   "time":"1-2 days",
   "pain":"1-3",
   "fever":true,
@@ -111,7 +111,7 @@ const theData = {"abdomen":[
 "symptoms":{
   "age":"18 - 45",
   "gender":"male",
-  "location":"RLQ",
+  "location":"Right Lower Quadrant",
   "time":"1-2 days",
   "pain":"1-3",
   "fever":true,
