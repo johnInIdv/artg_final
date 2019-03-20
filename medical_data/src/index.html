@@ -35,6 +35,7 @@
         </div>
       </div>
       <div class="col-sm-8 right" style="background-color:lavenderblush; height: 800px;;">
+				<div class="" id="createForms"></div>
 				<div class="form hidden" id="abdomenForm" style="padding-top:300px;">
           <form class="form-inline" action="/action_page.php">
             <div class="form-group">
@@ -43,11 +44,16 @@
             </div>
             <div class="form-group">
               <label for="age">Age</label>
-              <select class="form-control" id="age">
-                <option>18 - 45</option>
-                <option>46 – 64</option>
-                <option>65 & over</option>
-              </select>
+								<select style="padding-top:50px;" id="ageInput"></select>
+							<label for="gender">Gender</label>
+								<select style="padding-top:50px;" id="genderInput"></select>
+						 	<label for="time">Time</label>
+								<select style="padding-top:50px;" id="timeInput"></select>
+							<label for="time">Location</label>
+								<select style="padding-top:50px;" id="locationInput"></select>
+							<label for="time">Pain</label>
+								<select style="padding-top:50px;" id="painInput"></select>
+
             </div>
             <div class="form-group">
               <label for="problem">Location</label>
@@ -189,26 +195,10 @@
 
 
 	<!-- end fourth module -->
-	<script type="text/javascript">
-	const p = document.getElementById('problem');
-	const af = document.getElementById('abdomenForm');
-	const kf = document.getElementById('kneeForm');
+<script type="text/javascript">
 
-	p.addEventListener('change',(e) => {
-		console.log(e.target.name);
-		console.log(e.target.value);
-		if (e.target.name == 'pOption'){
-			if (e.target.value == 'abdomen'){
-				af.style.display = 'block';
-				kf.style.display = 'none';
-			} else if (e.target.value == 'knee') {
-					af.style.display = "none";
-					kf.style.display = "block";
-				}
-			}
-	})
+</script>
 
-	</script>
 		<script src='bundle.js' type='text/javascript'></script>
 	</body>
 </html>

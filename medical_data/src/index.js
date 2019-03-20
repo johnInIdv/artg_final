@@ -5,7 +5,10 @@ import * as d3 from 'd3';
 import {
 	SayThis,
 	doIt,
-	abdomenForm
+	abdomenForm,
+	abdomenElements,
+	kneeElements,
+	makeElements
 } from './utils';
 
 import {
@@ -21,6 +24,47 @@ import {
 // import SetClassFunction from './viewModules/SetClassFunction';
 
 console.log("doit is actually here");
+console.log(abdomenElements.age);
+console.log(kneeElements.age);
+
+
+
+const p = document.getElementById('problem');
+const af = document.getElementById('abdomenForm');
+const kf = document.getElementById('kneeForm');
+p.addEventListener('change',(e) => {
+	console.log(e.target.name);
+	console.log(e.target.value);
+	if (e.target.name == 'pOption'){
+		if (e.target.value == 'abdomen'){
+			makeElements(abdomenElements.age,ageInput);
+			makeElements(abdomenElements.gender,genderInput);
+			makeElements(abdomenElements.time,timeInput);
+			makeElements(abdomenElements.location,locationInput);
+			makeElements(abdomenElements.pain,painInput);
+			// makeElements(abdomenElements.fever,feverInput);
+		} else if (e.target.value == 'knee') {
+			makeElements(kneeElements.age,ageInput);
+			makeElements(kneeElements.gender,genderInput);
+			makeElements(kneeElements.time,timeInput);
+			}
+		}
+})
+
+
+// p.addEventListener('change',(e) => {
+// 	console.log(e.target.name);
+// 	console.log(e.target.value);
+// 	if (e.target.name == 'pOption'){
+// 		if (e.target.value == 'abdomen'){
+// 			af.style.display = 'block';
+// 			kf.style.display = 'none';
+// 		} else if (e.target.value == 'knee') {
+// 				af.style.display = "none";
+// 				kf.style.display = "block";
+// 			}
+// 		}
+// })
 
 
 const globalDispatch = d3.dispatch('make:bars','change:pain','update:first');

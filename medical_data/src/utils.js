@@ -4,11 +4,34 @@ import {
 	theData,
 } from './data';
 
-// const abdomenForm = function(){
-//
-//   document.getElementById('abdomenForm').style.display = 'none';
-//   document.getElementById('kneeForm').style.z-index = 'absolute';
-// }
+const abdomenElements = {
+  "age": ['18 – 44','45 – 64','65 and over'],
+  "gender": ['male','female'],
+  "time": ['1-3 days','4-7 days','a week or more'],
+  "location": ["Right Lower Quadrant","Right Upper Quadrant","Left Lower Quadrant","Left Upper Quadrant"],
+  "pain": ["1 – 3","4 – 7","8 – 10"],
+  "fever": [true,false]
+}
+
+const kneeElements = {
+  "age": ['18 – 24','25 – 64','65 and over'],
+  "gender": ['male','female'],
+  "time": ['1-3 days','4-7 days','a week or more']
+}
+
+const makeElements = function(a,b){
+
+    b.innerHTML = '';//clear out the previous selection
+  for (var i = 0; i < a.length; i++){
+    // b.removeChild(b.firstChild);
+    var s = document.createElement('option');
+    var t = document.createTextNode(a[i])
+    s.appendChild(t);
+    s.setAttribute("value",a[i]);
+    b.appendChild(s);
+  }
+}
+
 
 function SayThis(){
   console.log("say this");
@@ -112,5 +135,8 @@ const barVizFunction = function(data){
 export {
   SayThis,
   doIt,
-  abdomenForm
+  abdomenForm,
+  abdomenElements,
+  kneeElements,
+  makeElements
 }
