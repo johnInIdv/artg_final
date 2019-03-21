@@ -27,30 +27,32 @@ const kneeElements = {
   "time": ['1-3 days','4-7 days','a week or more']
 }
 
-
-const displayElements = function(a, b, c){
+// labels = labels (all the variables for the chosen problem)
+// inputID = id's for the chosen variable so that it's value can be matched against values in theData set.
+// problemsElements = the variables for a particular problem's element
+const displayElements = function(labels, inputID, problemsElements){
     // var hub = document.getElementById("ageForm");
     //   hub.style.display = "block";
 // grab the form div
     var yt = document.getElementById('ageForm');
     yt.innerHTML = '';
-for (var i = 0; i < a.length; i++){//runs through all the labels given to that problem
+for (var i = 0; i < labels.length; i++){//runs through all the labels given to that problem
 
 // create and add labels
     var nh = document.createElement('label');
-    var th = document.createTextNode(a[i]);
+    var th = document.createTextNode(labels[i]);
         nh.appendChild(th);
         yt.appendChild(nh);
 
 // create and add select element with attribute
     var mj = document.createElement('select');
-        mj.setAttribute('id',b[i]);
+        mj.setAttribute('id',inputID[i]);
         mj.setAttribute('class','inputs');
 
 // run through the elements to place parameters as options
-for (var j = 0; j < c[i].length; j++){
+for (var j = 0; j < problemsElements[i].length; j++){
     var s = document.createElement('option');
-    var t = document.createTextNode(c[i][j]);
+    var t = document.createTextNode(problemsElements[i][j]);
         s.appendChild(t);
         mj.appendChild(s);//append options to the select element
 }
