@@ -8,8 +8,9 @@ html,body,div{
 	margin:auto;
 }
 
-.input {
-	width: 50%;
+.inputs {
+	width: 100%;
+	padding: 10px;
 	align-items: center;
 	display: inline-block;
 }

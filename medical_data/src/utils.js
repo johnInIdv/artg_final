@@ -13,39 +13,65 @@ const abdomenElements = {
   // "fever": [true,false]
 }
 
+// const symptomsArray = [];
+// const symptoms = function () {
+//   for (var i = 0; i < theData.abdomen[0].length; i++){
+//     //runs through the theData object and make a new object with same keys and array of unique values that match that keys
+//
+//   }
+// }
+
 const kneeElements = {
   "age": ['18 – 24','25 – 64','65 and over'],
   "gender": ['male','female'],
   "time": ['1-3 days','4-7 days','a week or more']
 }
 
-// const makeElements = function(a,b){
-//   for (var i = 0; i < a.length; i++){
-//     b.innerHTML = '';//clear out the previous selection
-//   for (var i = 0; i < a.length; i++){
-//     // b.removeChild(b.firstChild);
-//     // var ss = document.createElement('p');
-//     var tt = document.createTextNode(a[i])
-//     var s = document.createElement('option');
-//     var t = document.createTextNode(a[i])
-//     s.appendChild(t);
-//     s.setAttribute("value",a[i]);
-//     b.appendChild(s);
-//   }
-// }
+
+const displayElements = function(a, b, c){
+    // var hub = document.getElementById("ageForm");
+    //   hub.style.display = "block";
+// grab the form div
+    var yt = document.getElementById('ageForm');
+    yt.innerHTML = '';
+for (var i = 0; i < a.length; i++){//runs through all the labels given to that problem
+
+// create and add labels
+    var nh = document.createElement('label');
+    var th = document.createTextNode(a[i]);
+        nh.appendChild(th);
+        yt.appendChild(nh);
+
+// create and add select element with attribute
+    var mj = document.createElement('select');
+        mj.setAttribute('id',b[i]);
+        mj.setAttribute('class','inputs');
+
+// run through the elements to place parameters as options
+for (var j = 0; j < c[i].length; j++){
+    var s = document.createElement('option');
+    var t = document.createTextNode(c[i][j]);
+        s.appendChild(t);
+        mj.appendChild(s);//append options to the select element
+}
+
+yt.appendChild(mj);//after options are appended to the select, append to the form
+}
+
+}
+
+
 
 const makeElements = function(a,b){
-    b.innerHTML = '';//clear out the previous selection
+  var yt = document.getElementById('ageForm');
+    // yt.innerHTML = '';//clear out the previous selection
   for (var i = 0; i < a.length; i++){
-    var tb = document.createElement("p");
-    // var tt = document.createTextNode("I'm here");
+    var tt = document.getElementById(b[i]);
     var s = document.createElement('option');
     var t = document.createTextNode(a[i]);
     s.appendChild(t);
-    tb.setAttribute('value',"I'm here");
     s.setAttribute("value",a[i]);
-    b.appendChild(s);
-    b.appendChild(tb);
+    tt.appendChild(s);
   }
 }
 
@@ -92,13 +118,20 @@ function doIt(){
                 theData.abdomen[i].actions.primary_care,
                 theData.abdomen[i].actions.nothing];
     // riskData.push(theData.abdomen[i].actions.risk);
+
     console.log("the risk while going to ER: " + theData.abdomen[i].actions.ER);
     console.log("the risk while going to Urgent Care: " + theData.abdomen[i].actions.urgent_care);
 		console.log("the risk while going to primary doc: " + theData.abdomen[i].actions.primary_care);
 		console.log("the risk of doing nothing: " + theData.abdomen[i].actions.nothing);
 
     }
-   else {console.log("not the same");}
+   else {
+     console.log(theData.abdomen[i].actions.ER);
+     console.log(theData.abdomen[2].symptoms.fever);
+     console.log(theNewData.symptoms.vomiting);
+     console.log(theData.abdomen[2].symptoms.vomiting);
+     console.log("not the same");
+   }
 }
 
 barVizFunction(riskData);
@@ -158,5 +191,6 @@ export {
   abdomenForm,
   abdomenElements,
   kneeElements,
-  makeElements
+  makeElements,
+  displayElements
 }

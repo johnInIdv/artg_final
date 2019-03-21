@@ -8,7 +8,8 @@ import {
 	abdomenForm,
 	abdomenElements,
 	kneeElements,
-	makeElements
+	makeElements,
+	displayElements
 } from './utils';
 
 import {
@@ -26,33 +27,42 @@ import {
 console.log("doit is actually here");
 console.log(typeof(theData.abdomen[0].symptoms.fever));
 console.log(kneeElements.age);
-makeElements(abdomenElements.age,ageInput);
-makeElements(abdomenElements.gender,genderInput);
-makeElements(abdomenElements.time,timeInput);
-makeElements(abdomenElements.location,locationInput);
-makeElements(abdomenElements.pain,painInput);
+// makeElements(abdomenElements.age,ageInput);
+// makeElements(abdomenElements.gender,genderInput);
+// makeElements(abdomenElements.time,timeInput);
+// makeElements(abdomenElements.location,locationInput);
+// makeElements(abdomenElements.pain,painInput);
 var good = document.getElementById("fever").checked;
 console.log(typeof(good));
 
+
+
+const labels = ['age','gender','time'];
+const inputs = ['ageInput','genderInput','timeInput'];
+const others = [abdomenElements.age,abdomenElements.gender,abdomenElements.time]
+
+console.log(others[1]);
 
 const p = document.getElementById('problem');
 const af = document.getElementById('abdomenForm');
 const kf = document.getElementById('kneeForm');
 p.addEventListener('change',(e) => {
+
 	console.log(e.target.name);
 	console.log(e.target.value);
 	if (e.target.name == 'pOption'){
 		if (e.target.value == 'abdomen'){
-			makeElements(abdomenElements.age,ageInput);
-			makeElements(abdomenElements.gender,genderInput);
-			makeElements(abdomenElements.time,timeInput);
-			makeElements(abdomenElements.location,locationInput);
-			makeElements(abdomenElements.pain,painInput);
+			displayElements(labels,inputs,others);
+			// makeElements(abdomenElements.age,inputs);
+			// makeElements(abdomenElements.gender,genderInput);
+			// makeElements(abdomenElements.time,timeInput);
+			// makeElements(abdomenElements.location,locationInput);
+			// makeElements(abdomenElements.pain,painInput);
 			// makeElements(abdomenElements.fever,feverInput);
 		} else if (e.target.value == 'knee') {
-			makeElements(kneeElements.age,ageInput);
-			makeElements(kneeElements.gender,genderInput);
-			makeElements(kneeElements.time,timeInput);
+			// makeElements(kneeElements.age,ageInput);
+			// makeElements(kneeElements.gender,genderInput);
+			// makeElements(kneeElements.time,timeInput);
 			}
 		}
 })
