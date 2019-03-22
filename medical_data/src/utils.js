@@ -73,45 +73,6 @@ const checkMarks = (labelsChecked,inputIDchecked,checked) => {
 
     }
 }
-//
-// const displayCheck = function(labels, inputID, problemsElements,checked){
-//
-// // grab the form div
-//     var yt = document.getElementById('abdomenForm');
-//     yt.innerHTML = '';
-//
-//     for (var i = 0; i < labels.length; i++){//runs through all the labels given to that problem
-//
-// // create and add labels
-//         var nh = document.createElement('label');
-//         var th = document.createTextNode(labels[i]);
-//             nh.appendChild(th);
-//             yt.appendChild(nh);
-//
-// // create and add select element with attribute
-//         var mj = document.createElement('select');
-//             mj.setAttribute('id',inputID[i]);
-//             mj.setAttribute('class','inputs');
-//
-//
-// // run through the elements to place parameters as options
-//         for (var j = 0; j < problemsElements[i].length; j++){
-//             var s = document.createElement('option');
-//             var t = document.createTextNode(problemsElements[i][j]);
-//                 s.appendChild(t);
-//                 mj.appendChild(s);//append options to the select element
-//         }
-//
-//         for (var k = 0; k < checked[i].length; k++){
-//             // var t = document.createTextNode(problemsElements[i][k]);
-//
-//                 mj.appendChild(s);//append options to the select element
-//         }
-//
-//         yt.appendChild(mj);//after options are appended to the select, append to the form
-//     }
-// }
-
 
 let riskData;
 function doIt(){
