@@ -9,7 +9,7 @@ import {
 // labels = labels (all the variables for the chosen problem)
 // inputID = id's for the chosen variable so that it's value can be matched against values in theData set.
 // problemsElements = the variables for a particular problem's element
-const displayElements = function(labels, inputID, problemsElements){
+const displayElements = function(labels, inputID, problemsElements,labelsChecked,inputIDchecked,checked){
 
 // grab the form div
     var yt = document.getElementById('abdomenForm');
@@ -37,8 +37,80 @@ const displayElements = function(labels, inputID, problemsElements){
         }
 
         yt.appendChild(mj);//after options are appended to the select, append to the form
+        }
+
+        for (var k = 0; k < checked.length; k++){
+           // create and add labels
+           var nh = document.createElement('label');
+           var th = document.createTextNode(labelsChecked[k]);
+               nh.appendChild(th);
+           var nm = document.createElement('input');
+               nm.setAttribute('type','checkbox');
+               nm.setAttribute('id',inputIDchecked[k]);
+               nh.appendChild(nm);
+
+               yt.appendChild(nh);
+
+       }
+    }
+
+
+
+const checkMarks = (labelsChecked,inputIDchecked,checked) => {
+     for (var k = 0; k < checked.length; k++){
+        // create and add labels
+        var nh = document.createElement('label');
+        var th = document.createTextNode(labelsChecked[k]);
+            nh.appendChild(th);
+
+        var nm = document.createElement('input');
+            nm.setAttribute('id',inputIDchecked[k]);
+            nm.setAttribute('type','checkbox');
+
+            nh.appendChild(nm);
+
+            yt.appendChild(nh);
+
     }
 }
+//
+// const displayCheck = function(labels, inputID, problemsElements,checked){
+//
+// // grab the form div
+//     var yt = document.getElementById('abdomenForm');
+//     yt.innerHTML = '';
+//
+//     for (var i = 0; i < labels.length; i++){//runs through all the labels given to that problem
+//
+// // create and add labels
+//         var nh = document.createElement('label');
+//         var th = document.createTextNode(labels[i]);
+//             nh.appendChild(th);
+//             yt.appendChild(nh);
+//
+// // create and add select element with attribute
+//         var mj = document.createElement('select');
+//             mj.setAttribute('id',inputID[i]);
+//             mj.setAttribute('class','inputs');
+//
+//
+// // run through the elements to place parameters as options
+//         for (var j = 0; j < problemsElements[i].length; j++){
+//             var s = document.createElement('option');
+//             var t = document.createTextNode(problemsElements[i][j]);
+//                 s.appendChild(t);
+//                 mj.appendChild(s);//append options to the select element
+//         }
+//
+//         for (var k = 0; k < checked[i].length; k++){
+//             // var t = document.createTextNode(problemsElements[i][k]);
+//
+//                 mj.appendChild(s);//append options to the select element
+//         }
+//
+//         yt.appendChild(mj);//after options are appended to the select, append to the form
+//     }
+// }
 
 
 let riskData;
@@ -51,12 +123,12 @@ function doIt(){
      "location": document.getElementById("locationInput").value,
      "time": document.getElementById("timeInput").value,
      "pain": document.getElementById("painInput").value,
-     "fever": document.getElementById("fever").checked,
-     "vomiting": document.getElementById("vomiting").checked,
-     "blood_in_vomit": document.getElementById("blood_in_vomit").checked,
-     "diarrhea": document.getElementById("diarrhea").checked,
-     "blood_in_stool": document.getElementById("blood_in_stool").checked,
-     "risk_factors": document.getElementById("risk_factors").checked
+     "fever": document.getElementById("feverInput").checked,
+     "vomiting": document.getElementById("vomitingInput").checked,
+     "blood_in_vomit": document.getElementById("blood_in_vomitInput").checked,
+     "diarrhea": document.getElementById("diarrheaInput").checked,
+     "blood_in_stool": document.getElementById("blood_in_stoolInput").checked,
+     "risk_factors": document.getElementById("risk_factorsInput").checked
    }}
 
   var i;
@@ -149,5 +221,6 @@ export {
   abdomenElements,
   kneeElements,
   makeElements,
-  displayElements
+  displayElements,
+  checkMarks
 }

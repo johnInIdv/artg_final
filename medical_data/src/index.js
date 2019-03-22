@@ -9,7 +9,8 @@ import {
 	// abdomenElements,
 	// kneeElements,
 	makeElements,
-	displayElements
+	displayElements,
+	checkMarks
 } from './utils';
 
 import {
@@ -22,20 +23,39 @@ const abdomenElements = {//I should make a function to populate this based on th
   "gender": ['male','female'],
   "time": ['1-3 days','4-7 days','a week or more'],
   "location": ["Right Lower Quadrant","Right Upper Quadrant","Left Lower Quadrant","Left Upper Quadrant"],
-  "pain": ["1-3","4-7","8-10"]
-  // "fever": [true,false]
+  "pain": ["1-3","4-7","8-10"],
+	"fever": [true,false],
+	"vomiting": [true,false],
+	"blood_in_vomit": [true,false],
+	"diarrhea": [true,false],
+	"blood_in_stool": [true,false],
+	"risk_factors": [true,false]
 }
 const kneeElements = {
   "age": ['18 – 24','25 – 64','65 and over'],
   "gender": ['male','female'],
   "time": ['1-3 days','4-7 days','a week or more'],
 	"location": ["Right side","Kneecap","Left side"],
-	"pain": ["1-3","4-7","8-10"]
+	"pain": ["1-3","4-7","8-10"],
+	"fever": [true,false],
+	"vomiting": [true,false],
+	"blood_in_vomit": [true,false],
+	"diarrhea": [true,false],
+	"blood_in_stool": [true,false],
+	"risk_factors": [true,false]
 }
 const labels = ['age','gender','time',"location","pain"];
+const labelsCheck = ['fever','vomiting','blood in vomit','diarrhea','blood in stools','risk factors'];
 const inputs = ['ageInput','genderInput','timeInput','locationInput','painInput'];
-const abdomenVariables = [abdomenElements.age,abdomenElements.gender,abdomenElements.time,abdomenElements.location,abdomenElements.pain]
-const kneeVariables = [kneeElements.age,kneeElements.gender,kneeElements.time,kneeElements.location,kneeElements.pain]
+const inputsCheck = ['feverInput','vomitingInput','blood_in_vomitInput','diarrheaInput','blood_in_stoolInput','risk_factorsInput']
+const abdomenVariables = [abdomenElements.age,abdomenElements.gender,abdomenElements.time,abdomenElements.location,
+													abdomenElements.pain,abdomenElements.fever];
+const kneeVariables = [kneeElements.age,kneeElements.gender,kneeElements.time,kneeElements.location,kneeElements.pain,
+												kneeElements.fever];
+const abdomenVariablesChecked = [abdomenElements.fever,abdomenElements.vomiting,abdomenElements.blood_in_vomit,
+																	abdomenElements.diarrhea,abdomenElements.blood_in_stool,abdomenElements.risk_factors];
+const kneeVariablesChecked = [kneeElements.fever,kneeElements.vomiting,kneeElements.blood_in_vomit,
+															kneeElements.diarrhea,kneeElements.blood_in_stool,kneeElements.risk_factors];
 
 const p = document.getElementById('problem');
 // const af = document.getElementById('abdomenForm');
@@ -46,10 +66,10 @@ p.addEventListener('change',(e) => {
 	console.log(e.target.value);
 	if (e.target.name == 'pOption'){
 		if (e.target.value == 'abdomen'){
-			displayElements(labels,inputs,abdomenVariables);
+			displayElements(labels,inputs,abdomenVariables,labelsCheck,inputsCheck,abdomenVariablesChecked);
 
 		} else if (e.target.value == 'knee') {
-			displayElements(labels,inputs,kneeVariables);
+			displayElements(labels,inputs,kneeVariables,labelsCheck,inputsCheck,kneeVariablesChecked);
 			}
 		}
 })
