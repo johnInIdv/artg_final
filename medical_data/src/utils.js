@@ -4,83 +4,42 @@ import {
 	theData,
 } from './data';
 
-const abdomenElements = {
-  "age": ['18 – 45','46 – 64','65 and over'],
-  "gender": ['male','female'],
-  "time": ['1-3 days','4-7 days','a week or more'],
-  "location": ["Right Lower Quadrant","Right Upper Quadrant","Left Lower Quadrant","Left Upper Quadrant"],
-  "pain": ["1-3","4-7","8-10"]
-  // "fever": [true,false]
-}
 
-// const symptomsArray = [];
-// const symptoms = function () {
-//   for (var i = 0; i < theData.abdomen[0].length; i++){
-//     //runs through the theData object and make a new object with same keys and array of unique values that match that keys
-//
-//   }
-// }
-
-const kneeElements = {
-  "age": ['18 – 24','25 – 64','65 and over'],
-  "gender": ['male','female'],
-  "time": ['1-3 days','4-7 days','a week or more']
-}
 
 // labels = labels (all the variables for the chosen problem)
 // inputID = id's for the chosen variable so that it's value can be matched against values in theData set.
 // problemsElements = the variables for a particular problem's element
 const displayElements = function(labels, inputID, problemsElements){
-    // var hub = document.getElementById("ageForm");
-    //   hub.style.display = "block";
+
 // grab the form div
-    var yt = document.getElementById('ageForm');
+    var yt = document.getElementById('abdomenForm');
     yt.innerHTML = '';
-for (var i = 0; i < labels.length; i++){//runs through all the labels given to that problem
+
+    for (var i = 0; i < labels.length; i++){//runs through all the labels given to that problem
 
 // create and add labels
-    var nh = document.createElement('label');
-    var th = document.createTextNode(labels[i]);
-        nh.appendChild(th);
-        yt.appendChild(nh);
+        var nh = document.createElement('label');
+        var th = document.createTextNode(labels[i]);
+            nh.appendChild(th);
+            yt.appendChild(nh);
 
 // create and add select element with attribute
-    var mj = document.createElement('select');
-        mj.setAttribute('id',inputID[i]);
-        mj.setAttribute('class','inputs');
+        var mj = document.createElement('select');
+            mj.setAttribute('id',inputID[i]);
+            mj.setAttribute('class','inputs');
 
 // run through the elements to place parameters as options
-for (var j = 0; j < problemsElements[i].length; j++){
-    var s = document.createElement('option');
-    var t = document.createTextNode(problemsElements[i][j]);
-        s.appendChild(t);
-        mj.appendChild(s);//append options to the select element
+        for (var j = 0; j < problemsElements[i].length; j++){
+            var s = document.createElement('option');
+            var t = document.createTextNode(problemsElements[i][j]);
+                s.appendChild(t);
+                mj.appendChild(s);//append options to the select element
+        }
+
+        yt.appendChild(mj);//after options are appended to the select, append to the form
+    }
 }
 
-yt.appendChild(mj);//after options are appended to the select, append to the form
-}
-
-}
-
-
-
-const makeElements = function(a,b){
-  var yt = document.getElementById('ageForm');
-    // yt.innerHTML = '';//clear out the previous selection
-  for (var i = 0; i < a.length; i++){
-    var tt = document.getElementById(b[i]);
-    var s = document.createElement('option');
-    var t = document.createTextNode(a[i]);
-    s.appendChild(t);
-    s.setAttribute("value",a[i]);
-    tt.appendChild(s);
-  }
-}
-
-
-function SayThis(){
-  console.log("say this");
-}
 
 let riskData;
 function doIt(){
@@ -128,10 +87,6 @@ function doIt(){
 
     }
    else {
-     console.log(theData.abdomen[i].actions.ER);
-     console.log(theData.abdomen[2].symptoms.fever);
-     console.log(theNewData.symptoms.vomiting);
-     console.log(theData.abdomen[2].symptoms.vomiting);
      console.log("not the same");
    }
 }

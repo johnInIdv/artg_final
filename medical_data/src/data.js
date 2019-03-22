@@ -1,4 +1,13 @@
 const theData = {"abdomen":[
+	{"parameters":[
+	  {"age": ['18 – 45','46 – 64','65 and over']},
+	  {"gender": ['male','female']},
+	  {"time": ['1-3 days','4-7 days','a week or more']},
+	  {"location": ["Right Lower Quadrant","Right Upper Quadrant","Left Lower Quadrant","Left Upper Quadrant"]},
+	  {"pain": ["1-3","4-7","8-10"]}
+	  // "fever": [true,false]
+	]
+},
 {
   "symptoms":{
     "age":"18 – 45",
@@ -50,7 +59,7 @@ const theData = {"abdomen":[
 	"location":"Right Lower Quadrant",
 	"time":"1-3 days",
 	"pain":"1-3",
-  "fever":true,
+  "fever":false,
   "vomiting":false,
   "blood_in_vomit":false,
   "diarrhea":false,
