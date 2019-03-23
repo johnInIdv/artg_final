@@ -15,12 +15,12 @@ const theData = {"abdomen":[
     "location":"Right Lower Quadrant",
     "time":"1-3 days",
     "pain":"1-3",
-    "fever":true,
-    "vomiting":true,
-    "blood_in_vomit":true,
-    "diarrhea":true,
-    "blood_in_stool": true,
-    "risk_factors": true
+    "fever":false,
+    "vomiting":false,
+    "blood_in_vomit":false,
+    "diarrhea":false,
+    "blood_in_stool": false,
+    "risk_factors": false
   },
   "actions":{
 		"ER": 8,
@@ -38,10 +38,10 @@ const theData = {"abdomen":[
 	"time":"1-3 days",
 	"pain":"1-3",
   "fever":true,
-  "vomiting":true,
-  "blood_in_vomit":true,
-  "diarrhea":true,
-  "blood_in_stool": true,
+  "vomiting":false,
+  "blood_in_vomit":false,
+  "diarrhea":false,
+  "blood_in_stool": false,
   "risk_factors": false,
 },
 "actions":{
@@ -59,8 +59,8 @@ const theData = {"abdomen":[
 	"location":"Right Lower Quadrant",
 	"time":"1-3 days",
 	"pain":"1-3",
-  "fever":false,
-  "vomiting":false,
+  "fever":true,
+  "vomiting":true,
   "blood_in_vomit":false,
   "diarrhea":false,
   "blood_in_stool": false,
@@ -78,15 +78,15 @@ const theData = {"abdomen":[
 "knee":[
 {
   "symptoms":{
-    "age":"18 - 45",
+    "age":"18 – 24",
     "gender":"male",
-    "location":"Right Lower Quadrant",
-    "time":"1-2 days",
+    "location":"Right side",
+    "time":"1-3 days",
     "pain":"1-3",
-    "fever":true,
-    "vomiting":true,
-    "blood_in_vomit":true,
-    "risk_factors": true,
+    "fever":false,
+    "vomiting":false,
+    "blood_in_vomit":false,
+    "risk_factors": false
   },
   "actions":{
 		"ER": 8,
@@ -98,15 +98,15 @@ const theData = {"abdomen":[
 },
 {
 "symptoms":{
-  "age":"18 - 45",
-  "gender":"male",
-  "location":"Right Lower Quadrant",
-  "time":"1-2 days",
-  "pain":"1-3",
-  "fever":true,
-  "vomiting":true,
-  "blood_in_vomit":true,
-  "risk_factors": false,
+	"age":"18 – 24",
+	"gender":"male",
+	"location":"Right side",
+	"time":"1-3 days",
+	"pain":"1-3",
+	"fever":true,
+	"vomiting":false,
+	"blood_in_vomit":false,
+	"risk_factors": false
 },
 "actions":{
   "ER": 2,
@@ -118,15 +118,15 @@ const theData = {"abdomen":[
 },
 {
 "symptoms":{
-  "age":"18 - 45",
-  "gender":"male",
-  "location":"Right Lower Quadrant",
-  "time":"1-2 days",
-  "pain":"1-3",
-  "fever":true,
-  "vomiting":true,
-  "blood_in_vomit":true,
-  "risk_factors": false,
+	"age":"18 – 24",
+	"gender":"male",
+	"location":"Right side",
+	"time":"1-3 days",
+	"pain":"1-3",
+	"fever":true,
+	"vomiting":true,
+	"blood_in_vomit":false,
+	"risk_factors": false
 },
 "actions":{
 	"ER": 10,

@@ -50,7 +50,6 @@ const displayElements = function(labels, inputID, problemsElements,labelsChecked
                nh.appendChild(nm);
 
                yt.appendChild(nh);
-
        }
     }
 
@@ -70,12 +69,11 @@ const checkMarks = (labelsChecked,inputIDchecked,checked) => {
             nh.appendChild(nm);
 
             yt.appendChild(nh);
-
     }
 }
 
 let riskData;
-function doIt(){
+function abdomenViz(){
 
   const theNewData = {
    "symptoms":{
@@ -117,6 +115,54 @@ function doIt(){
     console.log("the risk while going to Urgent Care: " + theData.abdomen[i].actions.urgent_care);
 		console.log("the risk while going to primary doc: " + theData.abdomen[i].actions.primary_care);
 		console.log("the risk of doing nothing: " + theData.abdomen[i].actions.nothing);
+
+    }
+   else {
+     console.log("not the same");
+   }
+}
+
+barVizFunction(riskData);
+}
+
+function kneeViz(){
+
+  const theNewData = {
+   "symptoms":{
+     "age": document.getElementById("ageInput").value,
+     "gender": document.getElementById("genderInput").value,
+     "location": document.getElementById("locationInput").value,
+     "time": document.getElementById("timeInput").value,
+     "pain": document.getElementById("painInput").value,
+     "fever": document.getElementById("feverInput").checked,
+     "vomiting": document.getElementById("vomitingInput").checked,
+     "blood_in_vomit": document.getElementById("blood_in_vomitInput").checked,
+     "risk_factors": document.getElementById("risk_factorsInput").checked
+   }}
+
+  var i;
+  for (i = 0; i < 3; i++){//remember to change the length number when data objects are added to the data
+    if ((theNewData.symptoms.age) == (theData.knee[i].symptoms.age)&&
+        (theNewData.symptoms.gender) == (theData.knee[i].symptoms.gender)&&
+        (theNewData.symptoms.location) == (theData.knee[i].symptoms.location)&&
+        (theNewData.symptoms.time) == (theData.knee[i].symptoms.time)&&
+        (theNewData.symptoms.pain) == (theData.knee[i].symptoms.pain)&&
+        (theNewData.symptoms.fever) == (theData.knee[i].symptoms.fever)&&
+        (theNewData.symptoms.vomiting) == (theData.knee[i].symptoms.vomiting)&&
+        (theNewData.symptoms.blood_in_vomit) == (theData.knee[i].symptoms.blood_in_vomit)&&
+        (theNewData.symptoms.risk_factors) == (theData.knee[i].symptoms.risk_factors)
+  ){
+    // return {theData[i]};
+    riskData = [theData.knee[i].actions.ER,
+                theData.knee[i].actions.urgent_care,
+                theData.knee[i].actions.primary_care,
+                theData.knee[i].actions.nothing];
+    // riskData.push(theData.abdomen[i].actions.risk);
+
+    console.log("the risk while going to ER: " + theData.knee[i].actions.ER);
+    console.log("the risk while going to Urgent Care: " + theData.knee[i].actions.urgent_care);
+		console.log("the risk while going to primary doc: " + theData.knee[i].actions.primary_care);
+		console.log("the risk of doing nothing: " + theData.knee[i].actions.nothing);
 
     }
    else {
@@ -176,8 +222,8 @@ const barVizFunction = function(data){
 }
 
 export {
-  SayThis,
-  doIt,
+  abdomenViz,
+  kneeViz,
   abdomenForm,
   abdomenElements,
   kneeElements,
