@@ -150,7 +150,7 @@ const kneeForm = FormDisplay()
 const p = document.getElementById('problem');
 // const af = document.getElementById('abdomenForm');
 // const kf = document.getElementById('kneeForm');
-// const globalDispatch = d3.dispatch('make:bars','change:pain','update:first');
+const globalDispatch = d3.dispatch('make:bars','store:labels','update:first');
 
 p.addEventListener('change',(e) => {
 

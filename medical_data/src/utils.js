@@ -143,11 +143,13 @@ import {
 //     return display;
 //
 // }
+// send the array of labels and inputsID's to the globalDispatch
+
 
 
 function FormDisplay(){
 
-	let labels = [];
+  let labels = [];
   let inputID = [];
   let optionElements = [];
   let theForm;
@@ -171,6 +173,7 @@ function FormDisplay(){
             var mj = document.createElement('select');
                 mj.setAttribute('id',inputID[i]);
                 mj.setAttribute('class','inputs');
+                mj.setAttribute('class','form-control');
     // run through the elements to place parameters as options
             for (var j = 0; j < optionElements[i].length; j++){
                 var s = document.createElement('option');
@@ -178,8 +181,8 @@ function FormDisplay(){
                     s.appendChild(t);
                     mj.appendChild(s);//append options to the select element
 
-                    theForm.appendChild(mj)
-            // container.appendChild(w);
+                    w.appendChild(mj);
+                    theForm.appendChild(w);
             }
           } else if (typeof(optionElements[i][0]) === 'boolean'){
 
@@ -191,6 +194,7 @@ function FormDisplay(){
                var nm = document.createElement('input');
                    nm.setAttribute('type','checkbox');
                    nm.setAttribute('id',inputID[i]);
+                   nm.setAttribute('class','form-check');
                    nh.appendChild(nm);
                    theForm.appendChild(nh)
           }
@@ -232,58 +236,58 @@ function FormDisplay(){
 
 
 
-// let riskData;
-// function abdomenViz(){
-//
-//   const theNewData = {
-//    "symptoms":{
-//      "age": document.getElementById("ageInput").value,
-//      "gender": document.getElementById("genderInput").value,
-//      "location": document.getElementById("locationInput").value,
-//      "time": document.getElementById("timeInput").value,
-//      "pain": document.getElementById("painInput").value,
-//      "fever": document.getElementById("feverInput").checked,
-//      "vomiting": document.getElementById("vomitingInput").checked,
-//      "blood_in_vomit": document.getElementById("blood_in_vomitInput").checked,
-//      "diarrhea": document.getElementById("diarrheaInput").checked,
-//      "blood_in_stool": document.getElementById("blood_in_stoolInput").checked,
-//      "risk_factors": document.getElementById("risk_factorsInput").checked
-//    }}
-//
-//   var i;
-//   for (i = 0; i < 3; i++){//remember to change the length number when data objects are added to the data
-//     if ((theNewData.symptoms.age) == (theData.abdomen[i].symptoms.age)&&
-//         (theNewData.symptoms.gender) == (theData.abdomen[i].symptoms.gender)&&
-//         (theNewData.symptoms.location) == (theData.abdomen[i].symptoms.location)&&
-//         (theNewData.symptoms.time) == (theData.abdomen[i].symptoms.time)&&
-//         (theNewData.symptoms.pain) == (theData.abdomen[i].symptoms.pain)&&
-//         (theNewData.symptoms.fever) == (theData.abdomen[i].symptoms.fever)&&
-//         (theNewData.symptoms.vomiting) == (theData.abdomen[i].symptoms.vomiting)&&
-//         (theNewData.symptoms.blood_in_vomit) == (theData.abdomen[i].symptoms.blood_in_vomit)&&
-//         (theNewData.symptoms.diarrhea) == (theData.abdomen[i].symptoms.diarrhea)&&
-//         (theNewData.symptoms.blood_in_stool) == (theData.abdomen[i].symptoms.blood_in_stool)&&
-//         (theNewData.symptoms.risk_factors) == (theData.abdomen[i].symptoms.risk_factors)
-//   ){
-//     // return {theData[i]};
-//     riskData = [theData.abdomen[i].actions.ER,
-//                 theData.abdomen[i].actions.urgent_care,
-//                 theData.abdomen[i].actions.primary_care,
-//                 theData.abdomen[i].actions.nothing];
-//     // riskData.push(theData.abdomen[i].actions.risk);
-//
-//     console.log("the risk while going to ER: " + theData.abdomen[i].actions.ER);
-//     console.log("the risk while going to Urgent Care: " + theData.abdomen[i].actions.urgent_care);
-// 		console.log("the risk while going to primary doc: " + theData.abdomen[i].actions.primary_care);
-// 		console.log("the risk of doing nothing: " + theData.abdomen[i].actions.nothing);
-//
-//     }
-//    else {
-//      console.log("not the same");
-//    }
-// }
-//
-// barVizFunction(riskData);
-// }
+let riskData;
+function abdomenViz(){
+
+  const theNewData = {
+   "symptoms":{
+     "age": document.getElementById("ageInput").value,
+     "gender": document.getElementById("genderInput").value,
+     "location": document.getElementById("locationInput").value,
+     "time": document.getElementById("timeInput").value,
+     "pain": document.getElementById("painInput").value,
+     "fever": document.getElementById("feverInput").checked,
+     "vomiting": document.getElementById("vomitingInput").checked,
+     "blood_in_vomit": document.getElementById("blood_in_vomitInput").checked,
+     "diarrhea": document.getElementById("diarrheaInput").checked,
+     "blood_in_stool": document.getElementById("blood_in_stoolInput").checked,
+     "risk_factors": document.getElementById("risk_factorsInput").checked
+   }}
+
+  var i;
+  for (i = 0; i < 3; i++){//remember to change the length number when data objects are added to the data
+    if ((theNewData.symptoms.age) == (theData.abdomen[i].symptoms.age)&&
+        (theNewData.symptoms.gender) == (theData.abdomen[i].symptoms.gender)&&
+        (theNewData.symptoms.location) == (theData.abdomen[i].symptoms.location)&&
+        (theNewData.symptoms.time) == (theData.abdomen[i].symptoms.time)&&
+        (theNewData.symptoms.pain) == (theData.abdomen[i].symptoms.pain)&&
+        (theNewData.symptoms.fever) == (theData.abdomen[i].symptoms.fever)&&
+        (theNewData.symptoms.vomiting) == (theData.abdomen[i].symptoms.vomiting)&&
+        (theNewData.symptoms.blood_in_vomit) == (theData.abdomen[i].symptoms.blood_in_vomit)&&
+        (theNewData.symptoms.diarrhea) == (theData.abdomen[i].symptoms.diarrhea)&&
+        (theNewData.symptoms.blood_in_stool) == (theData.abdomen[i].symptoms.blood_in_stool)&&
+        (theNewData.symptoms.risk_factors) == (theData.abdomen[i].symptoms.risk_factors)
+  ){
+    // return {theData[i]};
+    riskData = [theData.abdomen[i].actions.ER,
+                theData.abdomen[i].actions.urgent_care,
+                theData.abdomen[i].actions.primary_care,
+                theData.abdomen[i].actions.nothing];
+    // riskData.push(theData.abdomen[i].actions.risk);
+
+    console.log("the risk while going to ER: " + theData.abdomen[i].actions.ER);
+    console.log("the risk while going to Urgent Care: " + theData.abdomen[i].actions.urgent_care);
+		console.log("the risk while going to primary doc: " + theData.abdomen[i].actions.primary_care);
+		console.log("the risk of doing nothing: " + theData.abdomen[i].actions.nothing);
+
+    }
+   else {
+     console.log("not the same");
+   }
+}
+
+barVizFunction(riskData);
+}
 //
 // function kneeViz(){
 //
