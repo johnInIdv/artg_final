@@ -11,7 +11,9 @@ import {
 	// makeElements,
 	// displayElements,
 	// checkMarks,
-	FormDisplay
+	FormDisplay,
+	GetResults,
+	globalDispatch
 } from './utils';
 
 import {
@@ -22,6 +24,34 @@ import {
 	theData2,
 } from './data2';
 
+//
+// const myObj33 = {
+//   "name":"John",
+//   "age":30,
+//   "cars": {
+//     "car100":{
+// 	    "car10":"Ford10",
+// 	    "car20":"BMW20",
+// 	    "car30":"Fiat30"
+// 	  },
+//     "car2":"BMW",
+//     "car3":"Fiat"
+//   }
+//  }
+// console.log(JSON.stringify(myObj33.cars));
+// var myObj34, x;
+// myObj34 = JSON.stringify(myObj33.cars);
+
+var myObj, x;
+const newArray = [];
+const secondArray = [];
+for (x in theData2.abdomen.parameters) {
+  // document.getElementById("demo").innerHTML += x + "<br>";
+	newArray.push(x);
+	secondArray.push(theData2.abdomen.instances.one.symptoms[x]);
+}
+console.log(newArray);
+console.log(secondArray);
 // console.log(theData2);
 // for (var i = 0; i < 10; i++){
 // 	// for (var j = 0; j < 4; j++){
@@ -57,7 +87,7 @@ import {
 // 	["blood_in_stool",[true,false]],
 // 	["risk_factors",[true,false]]
 // ]
-console.log(theData2.problem[1]);
+// console.log(theData2.problem[1]);
 // console.log(abdomenElements);
 // const home = theData2.problem.abdomen.parameters;
 function addInput(item,index) {
@@ -66,31 +96,16 @@ function addInput(item,index) {
 }
 
 //abdomen data
-const abMap = new Map(theData2.problem[0].abdomen.parameters);
 const abElements = [];//an array of parameters arrays
 const abKeys = [];//this is an array of labels
-abMap.forEach(function(value, key) {
-	abElements.push(value);
-	abKeys.push(key);
-});
+for (x in theData2.abdomen.parameters) {
+  // document.getElementById("demo").innerHTML += x + "<br>";
+	abKeys.push(x);
+	abElements.push(theData2.abdomen.parameters[x]);
+}
+
+console.log(abElements);
 const abIDs = abKeys.map(addInput);//produces new ID's
-
-//knee data
-const kneeMap = new Map(theData2.problem[1].knee.parameters);
-const kneeElements = [];//an array of parameters arrays
-const kneeKeys = [];//this is an array of labels
-kneeMap.forEach(function(value, key) {
-	kneeElements.push(value);
-	kneeKeys.push(key);
-});
-const kneeIDs = kneeKeys.map(addInput);//produces new ID's
-
-console.log(kneeIDs);
-console.log(kneeKeys);
-console.log(kneeElements);
-// parKeys.length = 5;
-// parKeys.forEach((i)=>{console.log(i);})
-
 
 const abForm = FormDisplay()
 		.labels(abKeys)
@@ -98,14 +113,37 @@ const abForm = FormDisplay()
 		.inputID(abIDs)
 		.selectFormLocation(document.getElementById('theFormLocation'))
 
+
+//knee data
+const kneeElements = [];//an array of parameters arrays
+const kneeKeys = [];//this is an array of labels
+for (x in theData2.knee.parameters) {
+  // document.getElementById("demo").innerHTML += x + "<br>";
+	kneeKeys.push(x);
+	kneeElements.push(theData2.knee.parameters[x]);
+}
+const kneeIDs = kneeKeys.map(addInput);//produces new ID's
+
 const kneeForm = FormDisplay()
 		.labels(kneeKeys)
-		.optionElements(kneeElements)
+		.optionElements(abElements)
 		.inputID(kneeIDs)
-		.selectFormLocation(document.getElementById('theFormLocation'))
+		.selectFormLocation(document.getElementById('theFormLocation'));
 
-
-
+// const results = GetResults()
+// 		.labels(kneeKeys)
+// 		.inputID(kneeIDs)
+// 		.
+// const kneeSymMap = new Map(theData2.problem[1].instances[0][0]);
+// const kneeSymElements = [];//an array of parameters arrays
+// const kneeSymKeys = [];//this is an array of labels
+// kneeSymMap.forEach(function(value, key) {
+// 	kneeSymElements.push(value);
+// 	kneeSymKeys.push(key);
+// });
+// console.log(theData2.problem[1].knee.instances);
+// console.log(kneeSymKeys);
+// console.log(kneeSymElements);
 // Call the module to create the slider
 
 // const away = [{"age":"18 – 45"},
@@ -148,23 +186,16 @@ const kneeForm = FormDisplay()
 // const kneeVariablesChecked = [kneeElements.fever,kneeElements.vomiting,kneeElements.blood_in_vomit,kneeElements.risk_factors];
 
 const p = document.getElementById('problem');
-// const af = document.getElementById('abdomenForm');
-// const kf = document.getElementById('kneeForm');
-const globalDispatch = d3.dispatch('make:bars','store:labels','update:first');
+
 
 p.addEventListener('change',(e) => {
-
-	console.log(e.target.name);
-	console.log(e.target.value);
 	if (e.target.name == 'pOption'){
 		if (e.target.value == 'abdomen'){
-			// displayElements(parKeys,inputs,abdomenVariables,labelsCheck,inputsCheck,abdomenVariablesChecked);
 			abForm();
 			// globalDispatch.on('make:bars',() => {
 			// 	abdomenViz();
 			// })
 		} else if (e.target.value == 'knee') {
-			// displayElements(labels,inputs,kneeVariables,labelsCheck,inputsCheckKnee,kneeVariablesChecked);
 			kneeForm();
 			// globalDispatch.on('make:bars',() => {
 			// 	kneeViz();

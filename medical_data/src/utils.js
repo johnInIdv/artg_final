@@ -145,7 +145,7 @@ import {
 // }
 // send the array of labels and inputsID's to the globalDispatch
 
-
+const globalDispatch = d3.dispatch('make:bars','store:labels','update:first');
 
 function FormDisplay(){
 
@@ -160,12 +160,17 @@ function FormDisplay(){
 
       theForm.innerHTML = '';//clears the form on each selection
 
-        for (var i = 0; i < labels.length; i++){//runs through all the labels given to that problem
 
+        for (var i = 0; i < labels.length; i++){//runs through all the labels given to that problem
+          var lo = document.createElement('div');
+              lo.setAttribute('class','form-group');
 
         if (typeof(optionElements[i][0]) === 'string'){
+
+
         // create and add labels
                 var w = document.createElement('label');
+                    w.setAttribute('for','inputVariables');
                 var l = document.createTextNode(labels[i]);
                     w.appendChild(l);
 
@@ -182,7 +187,10 @@ function FormDisplay(){
                     mj.appendChild(s);//append options to the select element
 
                     w.appendChild(mj);
-                    theForm.appendChild(w);
+                    lo.appendChild(w);
+                    theForm.appendChild(lo);
+                    //Log UI interactions
+
             }
           } else if (typeof(optionElements[i][0]) === 'boolean'){
 
@@ -190,17 +198,20 @@ function FormDisplay(){
                // create and add labels
                var nh = document.createElement('label');
                var th = document.createTextNode(labels[i]);
+                   nh.setAttribute('for','inputVariables');
                    nh.appendChild(th);
                var nm = document.createElement('input');
                    nm.setAttribute('type','checkbox');
                    nm.setAttribute('id',inputID[i]);
                    nm.setAttribute('class','form-check');
+                   nm.setAttribute('class','btn');
                    nh.appendChild(nm);
-                   theForm.appendChild(nh)
+                   lo.appendChild(nh);
+                   theForm.appendChild(lo);
           }
+	        globalDispatch.call('store:labels',null);
 
-            // yt.appendChild(mj);//after options are appended to the select, append to the form
-          }
+        }
 
 	}
 
@@ -213,11 +224,13 @@ function FormDisplay(){
 
 	exports.inputID = function(_){
 		inputID = _;
+      console.log(inputID);
 		return this;
 	}
 
   exports.optionElements = function(_){
     optionElements = _;
+      console.log(optionElements);
     return this;
   }
 
@@ -231,8 +244,56 @@ function FormDisplay(){
 }
 
 
+function arraysEqual(arr1, arr2) {
+    if(arr1.length !== arr2.length)
+        return false;
+    for(var i = arr1.length; i--;) {
+        if(arr1[i] !== arr2[i])
+            return false;
+    }
+    return true;
+}
+
+// factory function that takes the variables and produces actions and recs to make other visualizations
+function GetResults(){
+
+    let labels = [];
+    let inputID = [];
+    let dataValues = [];
+
+    function exports(){
+
+      const newValues = [];
+      for (var i = 0; i < labels.length; i++){
+        newValues.push("labels[i]:document.getElementById(inputID[i])");
 
 
+        if (arraysEqual(newValues[i],dataValues[i])){
+          console.log(newValues[i]);
+          console.log(dataValues[i]);
+        }
+      }
+    }
+
+
+    exports.labels = function(_){
+      labels = _;
+      return this;
+    }
+
+    exports.inputID = function(_){
+      inputID = _;
+      return this;
+    }
+
+    exports.dataValues = function(_){
+      dataValues = _;
+      return this;
+    }
+
+  return exports;
+
+}
 
 
 
@@ -394,5 +455,7 @@ export {
   // makeElements,
   // displayElements,
   // checkMarks,
-  FormDisplay
+  FormDisplay,
+  GetResults,
+  globalDispatch
 }
