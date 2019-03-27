@@ -209,38 +209,35 @@ function FormDisplay(){
                    nh.appendChild(nm);
                    lo.appendChild(nh);
                    theForm.appendChild(lo);
-          }
+            }
+         }
+	    }
 
+    	//Getter/setter methods
+    	exports.labels = function(_){
+    		labels = _;
+        console.log(labels);
+    		return this;
+    	}
 
-        }
+    	exports.inputID = function(_){
+    		inputID = _;
+          console.log(inputID);
+    		return this;
+    	}
 
-	}
+      exports.optionElements = function(_){
+        optionElements = _;
+          console.log(optionElements);
+        return this;
+      }
 
-	//Getter/setter methods
-	exports.labels = function(_){
-		labels = _;
-    console.log(labels);
-		return this;
-	}
+      exports.selectFormLocation = function(_){
+        theForm = _;
+        return this;
+      }
 
-	exports.inputID = function(_){
-		inputID = _;
-      console.log(inputID);
-		return this;
-	}
-
-  exports.optionElements = function(_){
-    optionElements = _;
-      console.log(optionElements);
-    return this;
-  }
-
-  exports.selectFormLocation = function(_){
-    theForm = _;
-    return this;
-  }
-
-	return exports;
+    	return exports;
 
 }
 
@@ -276,7 +273,6 @@ function GetResults(){
       }
     }
 
-
     exports.labels = function(_){
       labels = _;
       return this;
@@ -296,60 +292,80 @@ function GetResults(){
 
 }
 
+const getFormElements = function (data){
+    		//abdomen data
+    		const formElements = [];//an array of parameters arrays
+    		const formKeys = [];//this is an array of labels
+    		for (x in data) {
+    		  // document.getElementById("demo").innerHTML += x + "<br>";
+    			formKeys.push(x);
+    			formElements.push(data[x]);
+    		}
+
+    		const formIDs = formKeys.map(addInput);//produces new ID's
+
+    		const form = FormDisplay()
+    				.labels(formKeys)
+    				.optionElements(formElements)
+    				.inputID(formIDs)
+    				.selectFormLocation(document.getElementById('theFormLocation'));
+
+    		form();
+    }
 
 
 let riskData;
-function abdomenViz(){
-
-  const theNewData = {
-   "symptoms":{
-     "age": document.getElementById("ageInput").value,
-     "gender": document.getElementById("genderInput").value,
-     "location": document.getElementById("locationInput").value,
-     "time": document.getElementById("timeInput").value,
-     "pain": document.getElementById("painInput").value,
-     "fever": document.getElementById("feverInput").checked,
-     "vomiting": document.getElementById("vomitingInput").checked,
-     "blood_in_vomit": document.getElementById("blood_in_vomitInput").checked,
-     "diarrhea": document.getElementById("diarrheaInput").checked,
-     "blood_in_stool": document.getElementById("blood_in_stoolInput").checked,
-     "risk_factors": document.getElementById("risk_factorsInput").checked
-   }}
-
-  var i;
-  // for (i = 0; i < 3; i++){//remember to change the length number when data objects are added to the data
-    if ((theNewData.symptoms.age) == (theData2.abdomen.instances.one.symptoms.age)&&
-        (theNewData.symptoms.gender) == (theData2.abdomen.instances.one.symptoms.gender)&&
-        (theNewData.symptoms.location) == (theData2.abdomen.instances.one.symptoms.location)&&
-        (theNewData.symptoms.time) == (theData2.abdomen.instances.one.symptoms.time)&&
-        (theNewData.symptoms.pain) == (theData2.abdomen.instances.one.symptoms.pain)&&
-        (theNewData.symptoms.fever) == (theData2.abdomen.instances.one.symptoms.fever)&&
-        (theNewData.symptoms.vomiting) == (theData2.abdomen.instances.one.symptoms.vomiting)&&
-        (theNewData.symptoms.blood_in_vomit) == (theData2.abdomen.instances.one.symptoms.blood_in_vomit)&&
-        (theNewData.symptoms.diarrhea) == (theData2.abdomen.instances.one.symptoms.diarrhea)&&
-        (theNewData.symptoms.blood_in_stool) == (theData2.abdomen.instances.one.symptoms.blood_in_stool)&&
-        (theNewData.symptoms.risk_factors) == (theData2.abdomen.instances.one.symptoms.risk_factors)
-  ){
-    // return {theData2[i]};
-    riskData = [theData2.abdomen.instances.one.actions.ER,
-                theData2.abdomen.instances.one.actions.urgent_care,
-                theData2.abdomen.instances.one.actions.primary_care,
-                theData2.abdomen.instances.one.actions.nothing];
-    // riskData.push(theData2.abdomen[i].actions.risk);
-
-    console.log("the risk while going to ER: " + theData2.abdomen.instances.one.actions.ER);
-    console.log("the risk while going to Urgent Care: " + theData2.abdomen.instances.one.actions.urgent_care);
-		console.log("the risk while going to primary doc: " + theData2.abdomen.instances.one.actions.primary_care);
-		console.log("the risk of doing nothing: " + theData2.abdomen.instances.one.actions.nothing);
-
-    }
-   else {
-     console.log("not the same");
-   }
+// function abdomenViz(){
+//
+//   const theNewData = {//dynamically produce this based on available data for chosen problem
+//    "symptoms":{
+//      "age": document.getElementById("ageInput").value,
+//      "gender": document.getElementById("genderInput").value,
+//      "location": document.getElementById("locationInput").value,
+//      "time": document.getElementById("timeInput").value,
+//      "pain": document.getElementById("painInput").value,
+//      "fever": document.getElementById("feverInput").checked,
+//      "vomiting": document.getElementById("vomitingInput").checked,
+//      "blood_in_vomit": document.getElementById("blood_in_vomitInput").checked,
+//      "diarrhea": document.getElementById("diarrheaInput").checked,
+//      "blood_in_stool": document.getElementById("blood_in_stoolInput").checked,
+//      "risk_factors": document.getElementById("risk_factorsInput").checked
+//    }}
+//
+//   var i;
+//   for (i = 0; i < 3; i++){//remember to change the length number when data objects are added to the data
+//     if ((theNewData.symptoms.age) == (theData2.abdomen.instances.one.symptoms.age)&&
+//         (theNewData.symptoms.gender) == (theData2.abdomen.instances.one.symptoms.gender)&&
+//         (theNewData.symptoms.location) == (theData2.abdomen.instances.one.symptoms.location)&&
+//         (theNewData.symptoms.time) == (theData2.abdomen.instances.one.symptoms.time)&&
+//         (theNewData.symptoms.pain) == (theData2.abdomen.instances.one.symptoms.pain)&&
+//         (theNewData.symptoms.fever) == (theData2.abdomen.instances.one.symptoms.fever)&&
+//         (theNewData.symptoms.vomiting) == (theData2.abdomen.instances.one.symptoms.vomiting)&&
+//         (theNewData.symptoms.blood_in_vomit) == (theData2.abdomen.instances.one.symptoms.blood_in_vomit)&&
+//         (theNewData.symptoms.diarrhea) == (theData2.abdomen.instances.one.symptoms.diarrhea)&&
+//         (theNewData.symptoms.blood_in_stool) == (theData2.abdomen.instances.one.symptoms.blood_in_stool)&&
+//         (theNewData.symptoms.risk_factors) == (theData2.abdomen.instances.one.symptoms.risk_factors)
+//   ){
+//     return {theData2[i]};
+//     riskData = [theData2.abdomen.instances.one.actions.ER,
+//                 theData2.abdomen.instances.one.actions.urgent_care,
+//                 theData2.abdomen.instances.one.actions.primary_care,
+//                 theData2.abdomen.instances.one.actions.nothing];
+//     // riskData.push(theData2.abdomen[i].actions.risk);
+//
+//     console.log("the risk while going to ER: " + theData2.abdomen.instances.one.actions.ER);
+//     console.log("the risk while going to Urgent Care: " + theData2.abdomen.instances.one.actions.urgent_care);
+// 		console.log("the risk while going to primary doc: " + theData2.abdomen.instances.one.actions.primary_care);
+// 		console.log("the risk of doing nothing: " + theData2.abdomen.instances.one.actions.nothing);
+//
+//     }
+//    else {
+//      console.log("not the same");
+//    }
+// // }
+//
+// barVizFunction(riskData);
 // }
-
-barVizFunction(riskData);
-}
 //
 // function kneeViz(){
 //
@@ -449,13 +465,7 @@ const barVizFunction = function(data){
 
 export {
   abdomenViz,
-  // kneeViz,
-  // abdomenForm,
-  // abdomenElements,
-  // kneeElements,
-  // makeElements,
-  // displayElements,
-  // checkMarks,
+  getFormElements,
   FormDisplay,
   GetResults
 }
