@@ -5,148 +5,6 @@ import {
 } from './data2';
 
 
-
-// labels = labels (all the variables for the chosen problem)
-// inputID = id's for the chosen variable so that it's value can be matched against values in theData2 set.
-// problemsElements = the variables for a particular problem's element
-// const displayElements = function(labels, inputID, problemsElements,labelsChecked,inputIDchecked,checked){
-//
-// // grab the form div
-//     var yt = document.getElementById('abdomenForm');
-//     yt.innerHTML = '';
-//
-//     for (var i = 0; i < labels.length; i++){//runs through all the labels given to that problem
-//
-// // create and add labels
-//         var nh = document.createElement('label');
-//         var th = document.createTextNode(labels[i]);
-//             nh.appendChild(th);
-//             yt.appendChild(nh);
-//
-// // create and add select element with attribute
-//         var mj = document.createElement('select');
-//             mj.setAttribute('id',inputID[i]);
-//             mj.setAttribute('class','inputs');
-//
-// // run through the elements to place parameters as options
-//         for (var j = 0; j < problemsElements[i].length; j++){
-//             var s = document.createElement('option');
-//             var t = document.createTextNode(problemsElements[i][j]);
-//                 s.appendChild(t);
-//                 mj.appendChild(s);//append options to the select element
-//         }
-//
-//         yt.appendChild(mj);//after options are appended to the select, append to the form
-//         }
-//
-//         for (var k = 0; k < checked.length; k++){
-//            // create and add labels
-//            var nh = document.createElement('label');
-//            var th = document.createTextNode(labelsChecked[k]);
-//                nh.appendChild(th);
-//            var nm = document.createElement('input');
-//                nm.setAttribute('type','checkbox');
-//                nm.setAttribute('id',inputIDchecked[k]);
-//                nh.appendChild(nm);
-//
-//                yt.appendChild(nh);
-//        }
-//     }
-
-
-
-// const checkMarks = (labelsChecked,inputIDchecked,checked) => {
-//      for (var k = 0; k < checked.length; k++){
-//         // create and add labels
-//         var nh = document.createElement('label');
-//         var th = document.createTextNode(labelsChecked[k]);
-//             nh.appendChild(th);
-//
-//         var nm = document.createElement('input');
-//             nm.setAttribute('id',inputIDchecked[k]);
-//             nm.setAttribute('type','checkbox');
-//
-//             nh.appendChild(nm);
-//
-//             yt.appendChild(nh);
-//     }
-// }
-
-
-
-// function FormDisplay(){
-//
-//   function display (container){
-//
-//     let labels = [1,2,3,4];
-//
-//   // grab the form div
-//       // var yt = document.getElementById('abdomenForm');
-//       container.innerHTML = '';
-//       for (var i = 0; i < labels.length; i++){//runs through all the labels given to that problem
-//
-//
-//       if (optionElements[i][0] == string){
-//       // create and add labels
-//               var w = document.createElement('label');
-//               var l = document.createTextNode(labels[i]);
-//                   w.appendChild(l);
-//
-//   // create and add select element with attribute
-//           var mj = document.createElement('select');
-//               mj.setAttribute('id',inputID[i]);
-//               mj.setAttribute('class','inputs');
-//   // run through the elements to place parameters as options
-//           for (var j = 0; j < optionElements[i].length; j++){
-//               var s = document.createElement('option');
-//               var t = document.createTextNode(optionElements[i][j]);
-//                   s.appendChild(t);
-//                   mj.appendChild(s);//append options to the select element
-//                   w.appendChild(mj)
-//           }
-//         } else if (optionElements[i][0] == boolean){
-//
-//           // for (var k = 0; k < checked.length; k++){//needs attention
-//              // create and add labels
-//              var nh = document.createElement('label');
-//              var th = document.createTextNode(labels[i]);
-//                  nh.appendChild(th);
-//              var nm = document.createElement('input');
-//                  nm.setAttribute('type','checkbox');
-//                  nm.setAttribute('id',inputID[i]);
-//                  nh.appendChild(nm);
-//                  container.appendChild(nh)
-//         }
-//                 container.appendChild(w);
-//           // yt.appendChild(mj);//after options are appended to the select, append to the form
-//         }
-//
-//       }
-//
-//     // (labels, inputID, problemsElements,labelsChecked,inputIDchecked,checked){
-//     //Getter/setter methods
-//   	display.labels = function(_){
-//   		labels = _;
-//   		return this;
-//   	}
-//
-//     display.inputID = function(_){
-//   		inputID = _;
-//   		return this;
-//   	}
-//
-//     display.optionElements = function(_){
-//   		optionElements = _;
-//   		return this;
-//   	}
-//
-//     return display;
-//
-// }
-// send the array of labels and inputsID's to the globalDispatch
-
-
-
 function FormDisplay(){
 
   let labels = [];
@@ -168,12 +26,12 @@ function FormDisplay(){
         if (typeof(optionElements[i][0]) === 'string'){
 
 
-        // create and add labels
-                var w = document.createElement('label');
-                    w.setAttribute('for','inputVariables');
-                    w.setAttribute('class','labels')
-                var l = document.createTextNode(labels[i]);
-                    w.appendChild(l);
+    // create and add labels
+            var w = document.createElement('label');
+                w.setAttribute('for','inputVariables');
+                w.setAttribute('class','labels')
+            var l = document.createTextNode(labels[i]);
+                w.appendChild(l);
 
     // create and add select element with attribute
             var mj = document.createElement('select');
@@ -216,19 +74,16 @@ function FormDisplay(){
     	//Getter/setter methods
     	exports.labels = function(_){
     		labels = _;
-        console.log(labels);
     		return this;
     	}
 
     	exports.inputID = function(_){
     		inputID = _;
-          console.log(inputID);
     		return this;
     	}
 
       exports.optionElements = function(_){
         optionElements = _;
-          console.log(optionElements);
         return this;
       }
 
@@ -252,45 +107,6 @@ function arraysEqual(arr1, arr2) {
     return true;
 }
 
-// factory function that takes the variables and produces actions and recs to make other visualizations
-function GetResults(){
-
-    let labels = [];
-    let inputID = [];
-    let dataValues = [];
-
-    function exports(){
-
-      const newValues = [];
-      for (var i = 0; i < labels.length; i++){
-        newValues.push("labels[i]:document.getElementById(inputID[i])");
-
-
-        if (arraysEqual(newValues[i],dataValues[i])){
-          console.log(newValues[i]);
-          console.log(dataValues[i]);
-        }
-      }
-    }
-
-    exports.labels = function(_){
-      labels = _;
-      return this;
-    }
-
-    exports.inputID = function(_){
-      inputID = _;
-      return this;
-    }
-
-    exports.dataValues = function(_){
-      dataValues = _;
-      return this;
-    }
-
-  return exports;
-
-}
 
 function addInput(item,index) {
   var newID = [item,"Input"].join("");
@@ -319,6 +135,11 @@ const getFormElements = function (data){
     		form();
     }
 
+
+
+// 1. get new data from input values - function that dispatches the values
+// 2. loop through instance's symptoms
+// 3. grab the actions and recommendation from the instance whose symptoms match the input
 
 let riskData;
 // function abdomenViz(){

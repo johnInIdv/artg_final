@@ -10,59 +10,10 @@ import {
 } from './utils';
 
 import {
-	theData,
-} from './data';
-
-import {
 	theData2,
 } from './data2';
 
-
-const good = 'abdomen';
-// console.log(theData2[good].instances[0]);
-var myObj, x;
-// const problemsArray = [];
-const secondArray = [];
-// for (x in theData2) {
-//   // document.getElementById("demo").innerHTML += x + "<br>";
-// 	problemsArray.push(x);
-// 	secondArray.push(theData2[abdomen][x]);
-// }
-// console.log(problemsArray);
-// console.log(secondArray);
-
-for (x in theData2[good].instances){
-	console.log(theData2[good].instances[x].symptoms);
-	secondArray.push(theData2[good].instances[x].symptoms[x]);
-}
-console.log(secondArray);
-// const thisArray = [];
-// for (var i = 0; i < 3; i++){
-// 	// console.log(theData3.abdomen.instances[newArray[i]].symptoms);
-// 	for (x in theData2.abdomen.instances[newArray[i]].symptoms){
-// 		if (theData2.abdomen.instances[newArray[i]].symptoms[x] == theData2.abdomen.instances.ab1.symptoms[x]){//change this it input data){
-// 			console.log(theData2.abdomen.instances[newArray[i]].symptoms[x]);//return the actions and recommendations
-// 		}
-// 		thisArray.push(theData2.abdomen.instances[newArray[i]].symptoms[x]);
-// 	}
-// }		console.log(thisArray);
-// const off = secondArray.map(ins => ins.symptoms);//gives an array of objects of symptons
-// console.log(off[0]);
-
-// const dataArray = [];
-// function makeData(make){
-//
-// 		dataArray.push(theData2[make]);
-//
-// 	}
-// makeData('knee')
-// console.log(dataArray);
-
-// const probMap = theData2.map(ing => ing.theData2)
-
-
-
-const globalDispatch = d3.dispatch('make:bars','ui-event','store:labels','update:first');
+const globalDispatch = d3.dispatch('make:bars','ui-event','store:labels','update:first','get:inputs');
 
 globalDispatch.on('make:bars', () => {
 	abdomenViz();
@@ -74,8 +25,23 @@ globalDispatch.on('ui-event', () => {
 	getFormElements(theData2[problemPicked].parameters);
 	});
 
+globalDispatch.on('get:inputs',(inputID) => {
+	const problemPicked = document.getElementById("problem").value;
+	const inputsArray = [];
+
+	const inputs = function(inputID) {
+		if (getElementById(inputID).value){
+			inputsArray.push(getElementById(inputID).value)
+		} else if (getElementById(inputID).checked){
+			inputsArray.push(getElementById(inputID).checked)
+		}
+		inputs(inputID)
+	console.log(inputsArray);
+}
+});
+
 //Button interactions
-d3.selectAll('#problem').on('change', function(){
+d3.select('#problem').on('change', function(){
 	globalDispatch.call(
 		'ui-event',
 		null,
@@ -95,7 +61,8 @@ d3.selectAll('#problem').on('change', function(){
   var scene1 = new ScrollMagic.Scene({triggerElement: "#firstTrigger",duration:200,offset: 400})
           .setTween(tween1)
           .on('enter',() => {
-						globalDispatch.call('make:bars',null);
+						// globalDispatch.call('make:bars',null);
+						globalDispatch.call('get:inputs',null,inputID);
           })
           .addIndicators({name:"trigger #1"}) // add indicators (requires plugin)
           .addTo(controller);
