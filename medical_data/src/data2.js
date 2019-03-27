@@ -14,7 +14,7 @@ const theData2 =
       	"risk_factors":[true,false]
       },
       "instances": {
-          "one": {
+          "ab1": {
             "symptoms": {
               "age":"18 – 45",
               "gender":"male",
@@ -36,7 +36,7 @@ const theData2 =
           },
            "recommendation":"ER"
         },//ends abdomen instances{
-        "two": {
+        "ab2": {
           "symptoms": {
             "age":"18 – 45",
             "gender":"male",
@@ -58,7 +58,7 @@ const theData2 =
         },
          "recommendation":"ER"
       },
-      "three": {
+      "ab3": {
         "symptoms": {
           "age":"18 – 45",
           "gender":"male",
@@ -79,15 +79,15 @@ const theData2 =
           "nothing": 2
       },
        "recommendation":"ER"
-        }
+      }
       }
     },//ends abdomen
     "knee": {
         "parameters":{
-          "age":['18 – 45','46 – 64','65 and over'],
+          "age":['18 – 35','36 – 64','65 and over'],
           "gender":['male','female'],
           "time":['1-3 days','4-7 days','a week or more'],
-          "location":["Right Lower Quadrant","Right Upper Quadrant","Left Lower Quadrant","Left Upper Quadrant"],
+          "location":["Right Side","Right Top","Left Side","Left Top"],
           "pain":["1-3","4-7","8-10"],
         	"fever":[true,false],
         	"vomiting":[true,false],
@@ -97,11 +97,11 @@ const theData2 =
         	"risk_factors":[true,false]
         },
         "instances": {
-            "one": {
+            "knee1": {
               "symptoms": {
-                "age":"18 – 45",
+                "age":"18 – 35",
                 "gender":"male",
-                "location":"Right Lower Quadrant",
+                "location":"Right Side",
                 "time":"1-3 days",
                 "pain":"1-3",
                 "fever":false,
@@ -113,17 +113,17 @@ const theData2 =
             },
               "actions": {
                 "ER": 8,
-                "urgent_care": 3,
-                "primary_care": 9,
+                "urgent_care": 9,
+                "primary_care": 2,
                 "nothing": 2
             },
              "recommendation":"ER"
           },//ends abdomen instances{
-      "two": {
+      "knee2": {
         "symptoms": {
-          "age":"18 – 45",
+          "age":"18 – 55",
           "gender":"male",
-          "location":"Right Lower Quadrant",
+          "location":"Right Side",
           "time":"1-3 days",
           "pain":"1-3",
           "fever":true,
@@ -134,18 +134,18 @@ const theData2 =
           "risk_factors":false
       },
         "actions": {
-          "ER": 8,
-          "urgent_care": 3,
+          "ER": 2,
+          "urgent_care": 9,
           "primary_care": 9,
-          "nothing": 2
+          "nothing": 10
       },
        "recommendation":"ER"
     },
-    "three": {
+    "knee3": {
       "symptoms": {
-        "age":"18 – 45",
+        "age":"18 – 35",
         "gender":"male",
-        "location":"Right Lower Quadrant",
+        "location":"Right Side",
         "time":"1-3 days",
         "pain":"1-3",
         "fever":true,
@@ -156,10 +156,10 @@ const theData2 =
         "risk_factors":false
     },
       "actions": {
-        "ER": 8,
+        "ER": 4,
         "urgent_care": 3,
-        "primary_care": 9,
-        "nothing": 2
+        "primary_care": 2,
+        "nothing": 6
     },
      "recommendation":"ER"
       }

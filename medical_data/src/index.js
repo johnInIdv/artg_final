@@ -12,8 +12,7 @@ import {
 	// displayElements,
 	// checkMarks,
 	FormDisplay,
-	GetResults,
-	globalDispatch
+	GetResults
 } from './utils';
 
 import {
@@ -42,93 +41,167 @@ import {
 // var myObj34, x;
 // myObj34 = JSON.stringify(myObj33.cars);
 
-var myObj, x;
-const newArray = [];
-const secondArray = [];
-for (x in theData2.abdomen.parameters) {
-  // document.getElementById("demo").innerHTML += x + "<br>";
-	newArray.push(x);
-	secondArray.push(theData2.abdomen.instances.one.symptoms[x]);
+const theData3 =
+  {  "abdomen": {
+      "parameters":{"age":['18 – 45','46 – 64','65 and over']},
+      "instances": {
+        "ab1":{
+         "symptoms": {
+					"age":"18 – 45",
+		 			"gender":"male",
+		 			"location":"Right Lower Quadrant",
+		 			"time":"1-3 days",
+		 			"pain":"1-3",
+		 			"fever":false,
+		 			"vomiting":false,
+		 			"blood_in_vomit":false,
+		 			"diarrhea":false,
+		 			"blood_in_stool":false,
+		 			"risk_factors":false},
+         "actions": {
+           "ER": 8},
+         "recommendation":"ER"
+        },
+        "ab2":{
+         "symptoms": {
+           "age":"18 – 455555"},
+         "actions": {
+           "ER": 8},
+         "recommendation":"ER"
+        },
+        "ab3":{
+         "symptoms": {
+           "age":"18 – 45666"},
+         "actions": {
+           "ER": 8},
+         "recommendation":"ER"
+        }
+      }
+  }
 }
-console.log(newArray);
-console.log(secondArray);
-// console.log(theData2);
-// for (var i = 0; i < 10; i++){
-// 	// for (var j = 0; j < 4; j++){
-// 		console.log(theData2.problem.abdomen.parameters[i])
-// 	// }
-// }
-//
-//
 
+const good = 'abdomen';
+console.log(theData2[good]);
+var myObj, x;
+// const problemsArray = [];
+// const secondArray = [];
+// for (x in theData2) {
+//   // document.getElementById("demo").innerHTML += x + "<br>";
+// 	problemsArray.push(x);
+// 	secondArray.push(theData2[abdomen][x]);
+// }
+// console.log(problemsArray);
+// console.log(secondArray);
+
+for (x in theData2.abdomen.instances){
+	console.log(x);
+}
+// const thisArray = [];
+// for (var i = 0; i < 3; i++){
+// 	// console.log(theData3.abdomen.instances[newArray[i]].symptoms);
+// 	for (x in theData2.abdomen.instances[newArray[i]].symptoms){
+// 		if (theData2.abdomen.instances[newArray[i]].symptoms[x] == theData2.abdomen.instances.ab1.symptoms[x]){//change this it input data){
+// 			console.log(theData2.abdomen.instances[newArray[i]].symptoms[x]);//return the actions and recommendations
+// 		}
+// 		thisArray.push(theData2.abdomen.instances[newArray[i]].symptoms[x]);
+// 	}
+// }		console.log(thisArray);
+// const off = secondArray.map(ins => ins.symptoms);//gives an array of objects of symptons
+// console.log(off[0]);
+
+// const dataArray = [];
+// function makeData(make){
 //
-// const home = [["age","18 – 45"],
-// 	["gender","male"],
-// 	["location",["Right Lower Quadrant","sfasd","ssgsgsgsg"]],
-// 	["time","1-3 days"],
-// 	["pain","1-3"],
-// 	["fever",false],
-// 	["vomiting",false],
-// 	["blood_in_vomit",false],
-// 	["diarrhea",false],
-// 	["blood_in_stool",false],
-// 	["risk_factors",false]]
+// 		dataArray.push(theData2[make]);
 //
-// const abdomenElements = [//I should make a function to populate this based on the theData set
-//   ["age",['18 – 45','46 – 64','65 and over']],
-//   ["gender",['male','female']],
-//   ["time",['1-3 days','4-7 days','a week or more']],
-//   ["location",["Right Lower Quadrant","Right Upper Quadrant","Left Lower Quadrant","Left Upper Quadrant"]],
-//   ["pain",["1-3","4-7","8-10"]],
-// 	["fever",[true,false]],
-// 	["vomiting",[true,false]],
-// 	["blood_in_vomit",[true,false]],
-// 	["diarrhea",[true,false]],
-// 	["blood_in_stool",[true,false]],
-// 	["risk_factors",[true,false]]
-// ]
-// console.log(theData2.problem[1]);
-// console.log(abdomenElements);
-// const home = theData2.problem.abdomen.parameters;
+// 	}
+// makeData('knee')
+// console.log(dataArray);
+
+// const probMap = theData2.map(ing => ing.theData2)
+
+
+
+const globalDispatch = d3.dispatch('make:bars','ui-event','store:labels','update:first');
+
+globalDispatch.on('make:bars', () => {
+	abdomenViz();
+});
+
+
+
+/* Record interaction with UI elements */
+
+//Log UI interactions
+globalDispatch.on('ui-event', () => {
+	const problemPicked = document.getElementById("problem").value;
+	// console.log(problemPicked);
+	const dataArray = [];
+	function makeData(make){
+			dataArray.push(theData2[make]);
+		}
+	makeData(problemPicked);
+	getFormElements(dataArray[0].parameters);
+		// abForm();
+	console.log(dataArray);
+	});
+
+//Button interactions
+d3.selectAll('#problem').on('change', function(){
+	globalDispatch.call(
+		'ui-event',
+		null,
+	);
+});
+
 function addInput(item,index) {
   var newID = [item,"Input"].join("");
   return newID;
 }
 
-//abdomen data
-const abElements = [];//an array of parameters arrays
-const abKeys = [];//this is an array of labels
-for (x in theData2.abdomen.parameters) {
-  // document.getElementById("demo").innerHTML += x + "<br>";
-	abKeys.push(x);
-	abElements.push(theData2.abdomen.parameters[x]);
+const getFormElements = function(data){
+		//abdomen data
+		const formElements = [];//an array of parameters arrays
+		const formKeys = [];//this is an array of labels
+		for (x in data) {
+		  // document.getElementById("demo").innerHTML += x + "<br>";
+			formKeys.push(x);
+			formElements.push(data[x]);
+		}
+
+		console.log(formElements);
+		const formIDs = formKeys.map(addInput);//produces new ID's
+
+		const form = FormDisplay()
+				.labels(formKeys)
+				.optionElements(formElements)
+				.inputID(formIDs)
+				.selectFormLocation(document.getElementById('theFormLocation'));
+
+		form();
 }
 
-console.log(abElements);
-const abIDs = abKeys.map(addInput);//produces new ID's
-
-const abForm = FormDisplay()
-		.labels(abKeys)
-		.optionElements(abElements)
-		.inputID(abIDs)
-		.selectFormLocation(document.getElementById('theFormLocation'))
 
 
-//knee data
-const kneeElements = [];//an array of parameters arrays
-const kneeKeys = [];//this is an array of labels
-for (x in theData2.knee.parameters) {
-  // document.getElementById("demo").innerHTML += x + "<br>";
-	kneeKeys.push(x);
-	kneeElements.push(theData2.knee.parameters[x]);
-}
-const kneeIDs = kneeKeys.map(addInput);//produces new ID's
 
-const kneeForm = FormDisplay()
-		.labels(kneeKeys)
-		.optionElements(abElements)
-		.inputID(kneeIDs)
-		.selectFormLocation(document.getElementById('theFormLocation'));
+//
+//
+//
+// //knee data
+// const kneeElements = [];//an array of parameters arrays
+// const kneeKeys = [];//this is an array of labels
+// for (x in theData2.knee.parameters) {
+//   // document.getElementById("demo").innerHTML += x + "<br>";
+// 	kneeKeys.push(x);
+// 	kneeElements.push(theData2.knee.parameters[x]);
+// }
+// const kneeIDs = kneeKeys.map(addInput);//produces new ID's
+//
+// const kneeForm = FormDisplay()
+// 		.labels(kneeKeys)
+// 		.optionElements(abElements)
+// 		.inputID(kneeIDs)
+// 		.selectFormLocation(document.getElementById('theFormLocation'));
 
 // const results = GetResults()
 // 		.labels(kneeKeys)
@@ -185,24 +258,24 @@ const kneeForm = FormDisplay()
 // 																	abdomenElements.diarrhea,abdomenElements.blood_in_stool,abdomenElements.risk_factors];
 // const kneeVariablesChecked = [kneeElements.fever,kneeElements.vomiting,kneeElements.blood_in_vomit,kneeElements.risk_factors];
 
-const p = document.getElementById('problem');
-
-
-p.addEventListener('change',(e) => {
-	if (e.target.name == 'pOption'){
-		if (e.target.value == 'abdomen'){
-			abForm();
-			// globalDispatch.on('make:bars',() => {
-			// 	abdomenViz();
-			// })
-		} else if (e.target.value == 'knee') {
-			kneeForm();
-			// globalDispatch.on('make:bars',() => {
-			// 	kneeViz();
-			// })
-			}
-		}
-})
+// const p = document.getElementById('problem');
+//
+//
+// p.addEventListener('change',(e) => {
+// 	if (e.target.name == 'pOption'){
+// 		if (e.target.value == 'abdomen'){
+// 			abForm();
+// 			// globalDispatch.on('make:bars',() => {
+// 			// 	abdomenViz();
+// 			// })
+// 		} else if (e.target.value == 'knee') {
+// 			kneeForm();
+// 			// globalDispatch.on('make:bars',() => {
+// 			// 	kneeViz();
+// 			// })
+// 			}
+// 		}
+// })
 
 	// init controller
 	var controller = new ScrollMagic.Controller();

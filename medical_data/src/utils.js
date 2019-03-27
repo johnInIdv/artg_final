@@ -145,11 +145,7 @@ import {
 // }
 // send the array of labels and inputsID's to the globalDispatch
 
-const globalDispatch = d3.dispatch('make:bars','store:labels','update:first');
 
-globalDispatch.on('make:bars', () => {
-	abdomenViz();
-});
 
 function FormDisplay(){
 
@@ -175,6 +171,7 @@ function FormDisplay(){
         // create and add labels
                 var w = document.createElement('label');
                     w.setAttribute('for','inputVariables');
+                    w.setAttribute('class','labels')
                 var l = document.createTextNode(labels[i]);
                     w.appendChild(l);
 
@@ -213,7 +210,7 @@ function FormDisplay(){
                    lo.appendChild(nh);
                    theForm.appendChild(lo);
           }
-	        globalDispatch.call('store:labels',null);
+
 
         }
 
@@ -460,6 +457,5 @@ export {
   // displayElements,
   // checkMarks,
   FormDisplay,
-  GetResults,
-  globalDispatch
+  GetResults
 }
