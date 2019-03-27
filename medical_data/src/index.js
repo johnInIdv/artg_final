@@ -82,10 +82,7 @@ d3.selectAll('#problem').on('change', function(){
 	);
 });
 
-function addInput(item,index) {
-  var newID = [item,"Input"].join("");
-  return newID;
-}
+
 
 	// init controller
 	var controller = new ScrollMagic.Controller();

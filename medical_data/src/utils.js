@@ -292,10 +292,16 @@ function GetResults(){
 
 }
 
+function addInput(item,index) {
+  var newID = [item,"Input"].join("");
+  return newID;
+}
+
 const getFormElements = function (data){
     		//abdomen data
     		const formElements = [];//an array of parameters arrays
     		const formKeys = [];//this is an array of labels
+        var x;
     		for (x in data) {
     		  // document.getElementById("demo").innerHTML += x + "<br>";
     			formKeys.push(x);
