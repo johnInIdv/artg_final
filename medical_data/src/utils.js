@@ -86,6 +86,7 @@ function FormDisplay(){
 
     	exports.inputID = function(_){
     		inputID = _;
+        console.log(inputID);
     		return this;
     	}
 
@@ -120,6 +121,8 @@ function addInput(item,index) {
   return newID;
 }
 
+let formIDs = [];
+
 const getFormElements = function (data){
     		//abdomen data
     		const formElements = [];//an array of parameters arrays
@@ -131,7 +134,7 @@ const getFormElements = function (data){
     			formElements.push(data[x]);
     		}
 
-    		const formIDs = formKeys.map(addInput);//produces new ID's
+    		formIDs = formKeys.map(addInput);//produces new ID's
 
     		const form = FormDisplay()
     				.labels(formKeys)
@@ -148,18 +151,45 @@ const getFormElements = function (data){
 // 2. loop through instance's symptoms
 // 3. grab the actions and recommendation from the instance whose symptoms match the input
 
-const problemPicked = document.getElementById("problem").value;
-const inputsArray = [];
 
-const inputs = function(inputID) {
-  if (getElementById(inputID).value){
-    inputsArray.push(getElementById(inputID).value)
-  } else if (getElementById(inputID).checked){
-    inputsArray.push(getElementById(inputID).checked)
+
+
+function GetRisks(formIDs){
+
+  let problemPicked = document.getElementById("problem").value;
+  let inputID = formIDs;
+
+
+  // 1. get inputted values
+  // 2. get dataset for problem
+  // 3. filterthrough problem dataset
+
+  function exports (f){
+      const inputsArray = [];
+console.log(document.getElementById('ageInput').value);
+      // function() {
+
+        for (var i = 0; i < inputID.length; i++){
+          if (document.getElementById(inputID[i]).value) {
+            inputsArray.push(document.getElementById(inputID[i]).value)
+          } else if (document.getElementById(inputID[i]).checked) {
+            inputsArray.push(document.getElementById(inputID[i]).checked)
+          }
+        }
+        // inputs();
+      console.log(inputsArray);
+
   }
-  inputs(inputID)
-console.log(inputsArray);
+
+ exports.inputID = function(_){
+   inputID = _;
+   return this;
+ }
+
+return exports;
+
 }
+
 
 let riskData;
 // function abdomenViz(){
@@ -315,5 +345,6 @@ export {
   getFormElements,
   FormDisplay,
 	parseInstanceData,
-  GetResults
+  GetResults,
+  GetRisks
 }

@@ -6,22 +6,48 @@ import {
 	abdomenViz,
 	getFormElements,
 	FormDisplay,
-	GetResults
+	GetResults,
+	GetRisks
 } from './utils';
 
 import {
 	instancesDataPromise,
+	headDataPromise,
 	theData2
 } from './data2';
 
-var x;
-for (x in instancesDataPromise){
-	console.log(x);
-}
-// const jot = instancesDataPromise.map(gh => gh.abdomen);
-console.log(instancesDataPromise);
 
-const globalDispatch = d3.dispatch('make:bars','ui-event','store:labels','update:first','get:inputs');
+const nom = GetRisks()
+	.inputID(['ageInput','painInput'])
+
+// instancesDataPromise.then(data => {
+// console.log(data.map(jot => jot.abdomen));
+// })
+const newGender = "male";
+const newAge = "18-45";
+const newDissy = "dissy";
+
+// headDataPromise.then(data => {
+// 	console.log(data[0].dissy);
+// 	// for (var i = 0; i < 1; i++){
+// 	let hot;
+// 	data.filter(function (pilot) {
+// 		if (
+// 			data.gender === newGender && data.age === newAge &&
+// 			data.dissy === newDissy
+// 		){
+// 			hot = data.recommendation
+// 			console.log(hot);
+// 		// }
+// 	}
+// //   return pilot.gender === "male" && pilot.age === "18-45";
+// });
+// });
+// 	console.log(rebels);
+// }
+
+
+const globalDispatch = d3.dispatch('make:bars','ui-event','store:labels','update:first','get:inputs','get:ids');
 
 globalDispatch.on('make:bars', () => {
 	abdomenViz();
@@ -34,7 +60,7 @@ globalDispatch.on('ui-event', () => {
 	});
 
 globalDispatch.on('get:inputs',(inputID) => {
-
+	// nom().inputID(inputID)
 });
 
 //Button interactions
@@ -43,6 +69,7 @@ d3.select('#problem').on('change', function(){
 		'ui-event',
 		null,
 	);
+		nom();
 });
 
 
@@ -59,6 +86,7 @@ d3.select('#problem').on('change', function(){
           .setTween(tween1)
           .on('enter',() => {
 						// globalDispatch.call('make:bars',null);
+
 						globalDispatch.call('get:inputs',null,inputID);
           })
           .addIndicators({name:"trigger #1"}) // add indicators (requires plugin)

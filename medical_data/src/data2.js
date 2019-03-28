@@ -5,6 +5,9 @@ import {parseInstanceData} from './utils';
 const instancesDataPromise = csv('./data/john_viz.csv', parseInstanceData)
 	.then(data => data.reduce((acc,v) => acc.concat(v), []));
 
+const headDataPromise = csv('./data/john_viz_head.csv')
+	.then(data => data.reduce((acc,v) => acc.concat(v), []));
+
 const theData2 =
   {  "abdomen": {
       "parameters":{
@@ -165,5 +168,6 @@ const theData2 =
 
 export {
 	theData2,
-  instancesDataPromise
+  instancesDataPromise,
+  headDataPromise
 }
