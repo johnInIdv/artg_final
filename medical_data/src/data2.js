@@ -1,3 +1,10 @@
+import {csv} from 'd3';
+
+import {parseInstanceData} from './utils';
+
+const instancesDataPromise = csv('./data/john_viz.csv', parseInstanceData)
+	.then(data => data.reduce((acc,v) => acc.concat(v), []));
+
 const theData2 =
   {  "abdomen": {
       "parameters":{
@@ -27,14 +34,14 @@ const theData2 =
               "diarrhea":false,
               "blood_in_stool":false,
               "risk_factors":false
-          },
+            },
             "actions": {
               "ER": 8,
               "urgent_care": 3,
               "primary_care": 9,
               "nothing": 2
-          },
-           "recommendation":"ER"
+            },
+            "recommendation":"ER"
         },//ends abdomen instances{
         "ab2": {
           "symptoms": {
@@ -157,5 +164,6 @@ const theData2 =
 
 
 export {
-	theData2
+	theData2,
+  instancesDataPromise
 }

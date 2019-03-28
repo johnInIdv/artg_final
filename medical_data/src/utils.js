@@ -4,6 +4,13 @@ import {
 	theData2,
 } from './data2';
 
+function parseInstanceData(d){
+	return{
+		abdomen: d.abdomen,
+		knee: d.knee,
+		head: d.head
+	}
+}
 
 function FormDisplay(){
 
@@ -140,6 +147,19 @@ const getFormElements = function (data){
 // 1. get new data from input values - function that dispatches the values
 // 2. loop through instance's symptoms
 // 3. grab the actions and recommendation from the instance whose symptoms match the input
+
+const problemPicked = document.getElementById("problem").value;
+const inputsArray = [];
+
+const inputs = function(inputID) {
+  if (getElementById(inputID).value){
+    inputsArray.push(getElementById(inputID).value)
+  } else if (getElementById(inputID).checked){
+    inputsArray.push(getElementById(inputID).checked)
+  }
+  inputs(inputID)
+console.log(inputsArray);
+}
 
 let riskData;
 // function abdomenViz(){
@@ -294,5 +314,6 @@ export {
   abdomenViz,
   getFormElements,
   FormDisplay,
+	parseInstanceData,
   GetResults
 }

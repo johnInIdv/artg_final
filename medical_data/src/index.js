@@ -10,8 +10,16 @@ import {
 } from './utils';
 
 import {
-	theData2,
+	instancesDataPromise,
+	theData2
 } from './data2';
+
+var x;
+for (x in instancesDataPromise){
+	console.log(x);
+}
+// const jot = instancesDataPromise.map(gh => gh.abdomen);
+console.log(instancesDataPromise);
 
 const globalDispatch = d3.dispatch('make:bars','ui-event','store:labels','update:first','get:inputs');
 
@@ -26,18 +34,7 @@ globalDispatch.on('ui-event', () => {
 	});
 
 globalDispatch.on('get:inputs',(inputID) => {
-	const problemPicked = document.getElementById("problem").value;
-	const inputsArray = [];
 
-	const inputs = function(inputID) {
-		if (getElementById(inputID).value){
-			inputsArray.push(getElementById(inputID).value)
-		} else if (getElementById(inputID).checked){
-			inputsArray.push(getElementById(inputID).checked)
-		}
-		inputs(inputID)
-	console.log(inputsArray);
-}
 });
 
 //Button interactions
