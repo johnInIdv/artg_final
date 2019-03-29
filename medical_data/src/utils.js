@@ -137,24 +137,15 @@ function addInput(item,index) {
 
 function GetRisks(){
 
-  let problemPicked = document.getElementById("problem").value;
+  // let problemPicked = document.getElementById("problem").value;
   let pickedIDs = [];
-  // for (var i = 0; i < pickedLabels; i++){
-  //   pickedIDs.push(pickedLabels[i]+'Input')
-  // }
-
   let pickedValues = [];
 
-  // 1. get inputted values
-  // 2. get dataset for problem
-  // 3. filterthrough problem dataset
-
   function exports (){
-      empty(pickedValues)
+      empty(pickedValues);
       pickedIDs = pickedLabels.map(addInput);//produces new ID's
-console.log(document.getElementById('swellingInput').checked);
+      empty(pickedLabels);
 console.log(pickedIDs);
-console.log(pickedLabels);
       // function() {
 
         for (var i = 0; i < pickedIDs.length; i++){

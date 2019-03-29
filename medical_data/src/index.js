@@ -17,41 +17,13 @@ import {
 } from './data2';
 
 
-
-// instancesDataPromise.then(data => {
-// console.log(data.map(jot => jot.abdomen));
-// })
-const newGender = "male";
-const newAge = "18-45";
-const newDissy = "dissy";
-
-// headDataPromise.then(data => {
-// 	console.log(data[0].dissy);
-// 	// for (var i = 0; i < 1; i++){
-// 	let hot;
-// 	data.filter(function (pilot) {
-// 		if (
-// 			data.gender === newGender && data.age === newAge &&
-// 			data.dissy === newDissy
-// 		){
-// 			hot = data.recommendation
-// 			console.log(hot);
-// 		// }
-// 	}
-// //   return pilot.gender === "male" && pilot.age === "18-45";
-// });
-// });
-// 	console.log(rebels);
-// }
 const values = GetRisks();
-
 
 const globalDispatch = d3.dispatch('make:bars','ui-event','store:labels','update:first','get:inputs','get:ids');
 
 globalDispatch.on('make:bars', () => {
 	abdomenViz();
 });
-
 
 const form = FormDisplay()
 		.selectFormLocation(document.getElementById('theFormLocation'));
@@ -73,7 +45,6 @@ d3.select('#problem').on('change', function(){
 		null,
 	);
 });
-
 
 
 	// init controller
