@@ -17,8 +17,6 @@ import {
 } from './data2';
 
 
-const nom = GetRisks()
-	.inputID(['ageInput','painInput'])
 
 // instancesDataPromise.then(data => {
 // console.log(data.map(jot => jot.abdomen));
@@ -45,6 +43,7 @@ const newDissy = "dissy";
 // });
 // 	console.log(rebels);
 // }
+const values = GetRisks();
 
 
 const globalDispatch = d3.dispatch('make:bars','ui-event','store:labels','update:first','get:inputs','get:ids');
@@ -55,22 +54,16 @@ globalDispatch.on('make:bars', () => {
 
 
 const form = FormDisplay()
-		// .labels(formKeys)
-		// .optionElements(formElements)
-		// .inputID(formIDs)
 		.selectFormLocation(document.getElementById('theFormLocation'));
 
 //Log UI interactions
 globalDispatch.on('ui-event', () => {
-
-	// getFormElements(theData2[problemPicked].parameters);
 	form();
 	});
 
-globalDispatch.on('get:inputs',(inputID) => {
+globalDispatch.on('get:inputs',() => {
 	// the function that logs the values
-	let problemPicked = document.getElementById("problem").value;
-	console.log(problemPicked);
+	values();
 });
 
 //Button interactions

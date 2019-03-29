@@ -12,6 +12,12 @@ function parseInstanceData(d){
 	}
 }
 
+const pickedLabels = [];
+
+function empty(list) {
+    list.length = 0;
+}
+
 function FormDisplay(){
 
   let theForm;
@@ -22,9 +28,7 @@ function FormDisplay(){
 	function exports(){
     let problemPicked = document.getElementById("problem").value;
     let data = theData2[problemPicked].parameters;
-    function empty(list) {
-        list.length = 0;
-    }
+
       empty(formIDs);
       empty(formElements);
       empty(formKeys);
@@ -35,10 +39,11 @@ function FormDisplay(){
     for (x in data) {
       // document.getElementById("demo").innerHTML += x + "<br>";
       formKeys.push(x);
+      pickedLabels.push(x);
       formElements.push(data[x]);
     }
     console.log('here');
-    console.log(formKeys);
+    console.log(pickedLabels);
     formIDs = formKeys.map(addInput);//produces new ID's
     // grab the form div
         // var yt = document.getElementById('abdomenForm');
@@ -100,17 +105,6 @@ function FormDisplay(){
     		data = _;
     		return this;
     	}
-      //
-    	// exports.inputID = function(_){
-    	// 	inputID = _;
-      //   console.log(inputID);
-    	// 	return this;
-    	// }
-      //
-      // exports.optionElements = function(_){
-      //   optionElements = _;
-      //   return this;
-      // }
 
       exports.selectFormLocation = function(_){
         theForm = _;
@@ -118,7 +112,6 @@ function FormDisplay(){
       }
 
     	return exports;
-
 }
 
 
@@ -138,71 +131,45 @@ function addInput(item,index) {
   return newID;
 }
 
-
-
-const getFormElements = function (data,callFunc){
-        let formIDs = [];
-    		//abdomen data
-    		const formElements = [];//an array of parameters arrays
-    		const formKeys = [];//this is an array of labels
-        var x;
-    		for (x in data) {
-    		  // document.getElementById("demo").innerHTML += x + "<br>";
-    			formKeys.push(x);
-    			formElements.push(data[x]);
-    		}
-
-    		formIDs = formKeys.map(addInput);//produces new ID's
-
-    		const form = FormDisplay()
-    				.labels(formKeys)
-    				.optionElements(formElements)
-    				.inputID(formIDs)
-    				.selectFormLocation(document.getElementById('theFormLocation'));
-
-    		form();
-    }
-
-
-
 // 1. get new data from input values - function that dispatches the values
 // 2. loop through instance's symptoms
 // 3. grab the actions and recommendation from the instance whose symptoms match the input
 
-
-
-
-function GetRisks(formIDs){
+function GetRisks(){
 
   let problemPicked = document.getElementById("problem").value;
-  let inputID = formIDs;
+  let pickedIDs = [];
+  // for (var i = 0; i < pickedLabels; i++){
+  //   pickedIDs.push(pickedLabels[i]+'Input')
+  // }
 
+  let pickedValues = [];
 
   // 1. get inputted values
   // 2. get dataset for problem
   // 3. filterthrough problem dataset
 
-  function exports (f){
-      const inputsArray = [];
-console.log(document.getElementById('ageInput').value);
+  function exports (){
+      empty(pickedValues)
+      pickedIDs = pickedLabels.map(addInput);//produces new ID's
+console.log(document.getElementById('swellingInput').checked);
+console.log(pickedIDs);
+console.log(pickedLabels);
       // function() {
 
-        for (var i = 0; i < inputID.length; i++){
-          if (document.getElementById(inputID[i]).value) {
-            inputsArray.push(document.getElementById(inputID[i]).value)
-          } else if (document.getElementById(inputID[i]).checked) {
-            inputsArray.push(document.getElementById(inputID[i]).checked)
+        for (var i = 0; i < pickedIDs.length; i++){
+          if (document.getElementById(pickedIDs[i]).checked === false ||
+              document.getElementById(pickedIDs[i]).checked === true
+              ) {
+            pickedValues.push(document.getElementById(pickedIDs[i]).checked)
+          } else  {
+            pickedValues.push(document.getElementById(pickedIDs[i]).value)
           }
         }
         // inputs();
-      console.log(inputsArray);
+      console.log(pickedValues);
 
   }
-
- exports.inputID = function(_){
-   inputID = _;
-   return this;
- }
 
 return exports;
 
