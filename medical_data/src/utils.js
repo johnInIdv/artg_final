@@ -14,41 +14,58 @@ function parseInstanceData(d){
 
 function FormDisplay(){
 
-  let labels = [];
-  let inputID = [];
-  let optionElements = [];
   let theForm;
+  let formIDs = [];
+  let formElements = [];//an array of parameters arrays
+  let formKeys = [];//this is an array of labels
 
 	function exports(){
+    let problemPicked = document.getElementById("problem").value;
+    let data = theData2[problemPicked].parameters;
+    function empty(list) {
+        list.length = 0;
+    }
+      empty(formIDs);
+      empty(formElements);
+      empty(formKeys);
+  	  theForm.innerHTML = '';//clears the form on each selection
+
+
+    var x;
+    for (x in data) {
+      // document.getElementById("demo").innerHTML += x + "<br>";
+      formKeys.push(x);
+      formElements.push(data[x]);
+    }
+    console.log('here');
+    console.log(formKeys);
+    formIDs = formKeys.map(addInput);//produces new ID's
     // grab the form div
         // var yt = document.getElementById('abdomenForm');
 
-      theForm.innerHTML = '';//clears the form on each selection
-
-
-        for (var i = 0; i < labels.length; i++){//runs through all the labels given to that problem
+        for (var i = 0; i < formKeys.length; i++){//runs through all the labels given to that problem
           var lo = document.createElement('div');
               lo.setAttribute('class','form-group');
 
-        if (typeof(optionElements[i][0]) === 'string'){
+        if (typeof(formElements[i][0]) === 'string'){
 
 
     // create and add labels
             var w = document.createElement('label');
                 w.setAttribute('for','inputVariables');
                 w.setAttribute('class','labels')
-            var l = document.createTextNode(labels[i]);
+            var l = document.createTextNode(formKeys[i]);
                 w.appendChild(l);
 
     // create and add select element with attribute
             var mj = document.createElement('select');
-                mj.setAttribute('id',inputID[i]);
+                mj.setAttribute('id',formIDs[i]);
                 mj.setAttribute('class','inputs');
                 mj.setAttribute('class','form-control');
     // run through the elements to place parameters as options
-            for (var j = 0; j < optionElements[i].length; j++){
+            for (var j = 0; j < formElements[i].length; j++){
                 var s = document.createElement('option');
-                var t = document.createTextNode(optionElements[i][j]);
+                var t = document.createTextNode(formElements[i][j]);
                     s.appendChild(t);
                     mj.appendChild(s);//append options to the select element
 
@@ -58,17 +75,17 @@ function FormDisplay(){
                     //Log UI interactions
 
             }
-          } else if (typeof(optionElements[i][0]) === 'boolean'){
+          } else if (typeof(formElements[i][0]) === 'boolean'){
 
             // for (var k = 0; k < checked.length; k++){//needs attention
                // create and add labels
                var nh = document.createElement('label');
-               var th = document.createTextNode(labels[i]);
+               var th = document.createTextNode(formKeys[i]);
                    nh.setAttribute('for','inputVariables');
                    nh.appendChild(th);
                var nm = document.createElement('input');
                    nm.setAttribute('type','checkbox');
-                   nm.setAttribute('id',inputID[i]);
+                   nm.setAttribute('id',formIDs[i]);
                    nm.setAttribute('class','form-check');
                    nm.setAttribute('class','btn');
                    nh.appendChild(nm);
@@ -79,21 +96,21 @@ function FormDisplay(){
 	    }
 
     	//Getter/setter methods
-    	exports.labels = function(_){
-    		labels = _;
+    	exports.data = function(_){
+    		data = _;
     		return this;
     	}
-
-    	exports.inputID = function(_){
-    		inputID = _;
-        console.log(inputID);
-    		return this;
-    	}
-
-      exports.optionElements = function(_){
-        optionElements = _;
-        return this;
-      }
+      //
+    	// exports.inputID = function(_){
+    	// 	inputID = _;
+      //   console.log(inputID);
+    	// 	return this;
+    	// }
+      //
+      // exports.optionElements = function(_){
+      //   optionElements = _;
+      //   return this;
+      // }
 
       exports.selectFormLocation = function(_){
         theForm = _;
@@ -121,9 +138,10 @@ function addInput(item,index) {
   return newID;
 }
 
-let formIDs = [];
 
-const getFormElements = function (data){
+
+const getFormElements = function (data,callFunc){
+        let formIDs = [];
     		//abdomen data
     		const formElements = [];//an array of parameters arrays
     		const formKeys = [];//this is an array of labels

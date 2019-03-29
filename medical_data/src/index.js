@@ -53,14 +53,24 @@ globalDispatch.on('make:bars', () => {
 	abdomenViz();
 });
 
+
+const form = FormDisplay()
+		// .labels(formKeys)
+		// .optionElements(formElements)
+		// .inputID(formIDs)
+		.selectFormLocation(document.getElementById('theFormLocation'));
+
 //Log UI interactions
 globalDispatch.on('ui-event', () => {
-	const problemPicked = document.getElementById("problem").value;
-	getFormElements(theData2[problemPicked].parameters);
+
+	// getFormElements(theData2[problemPicked].parameters);
+	form();
 	});
 
 globalDispatch.on('get:inputs',(inputID) => {
-	// nom().inputID(inputID)
+	// the function that logs the values
+	let problemPicked = document.getElementById("problem").value;
+	console.log(problemPicked);
 });
 
 //Button interactions
@@ -69,7 +79,6 @@ d3.select('#problem').on('change', function(){
 		'ui-event',
 		null,
 	);
-		nom();
 });
 
 
@@ -87,7 +96,7 @@ d3.select('#problem').on('change', function(){
           .on('enter',() => {
 						// globalDispatch.call('make:bars',null);
 
-						globalDispatch.call('get:inputs',null,inputID);
+						globalDispatch.call('get:inputs',null,);
           })
           .addIndicators({name:"trigger #1"}) // add indicators (requires plugin)
           .addTo(controller);
