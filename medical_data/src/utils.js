@@ -144,7 +144,7 @@ function GetRisks(){
   function exports (){
       empty(pickedValues);
       pickedIDs = pickedLabels.map(addInput);//produces new ID's
-      empty(pickedLabels);
+
 console.log(pickedIDs);
       // function() {
 
@@ -159,7 +159,7 @@ console.log(pickedIDs);
         }
         // inputs();
       console.log(pickedValues);
-
+    empty(pickedLabels);//this placement gives blank arrays after first run through - need to fix
   }
 
 return exports;
