@@ -16,7 +16,7 @@ import {
 	theData2
 } from './data2';
 
-
+//I'm adding a comment
 const values = GetRisks();
 
 const globalDispatch = d3.dispatch('make:bars','ui-event','store:labels','update:first','get:inputs','get:ids');
