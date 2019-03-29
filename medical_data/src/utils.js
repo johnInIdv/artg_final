@@ -78,7 +78,7 @@ function FormDisplay(){
                     lo.appendChild(w);
                     theForm.appendChild(lo);
                     //Log UI interactions
-
+//use onsumbit button will send all input info to an object
             }
           } else if (typeof(formElements[i][0]) === 'boolean'){
 
